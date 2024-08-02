@@ -13,3 +13,30 @@ def menu():
 
     return escolha
 
+def add():
+
+    outra = 1
+
+    while outra == 1:
+
+        print("\t \t ADICIONAR TAREFAS \n")
+
+        add = int(input(("O que gostaria de fazer? \n 1 - Adicionar uma tarefa \n 2 - sair \n ---> ")))
+
+        os.system("pause")
+        os.system("cls")
+
+        if add == 1:
+            pass    
+
+        elif add == 2:
+            print("\t Saindo...")
+
+            os.system("pause")
+            os.system("cls")
+
+        else:
+            print("\t Opção invalida...")
+            
+            os.system("pause")
+            os.system("cls")
