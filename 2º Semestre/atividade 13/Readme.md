@@ -1,0 +1,1 @@
+    Nesse arquivos foi Realizado a criação de um programa de Tarefas (To-Do) em python, essa tarefa foi dada para nos ajudar a relembrar o que aprendemos no 1º Semestre
