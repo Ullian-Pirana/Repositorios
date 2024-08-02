@@ -3,7 +3,21 @@ from Defs import *
 sair = 1
 
 while sair == 1:
-    pass
+    
+    escolha = menu()
+    clean()
 
+    if escolha == 1:
+        pass
+
+    if escolha == 2:
+        pass
+    
+    if escolha == 3:
+        pass
+    
+    if escolha == 4:
+        pass
+    
 
 os.system("pause")
