@@ -1,2 +1,5 @@
 Tarefas = {}
 
+nome = []
+descrição = []
+data = []
