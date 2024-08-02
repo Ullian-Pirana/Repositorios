@@ -17,7 +17,9 @@ while sair == 1:
         pass
     
     if escolha == 4:
-        pass
-    
+        print("\t Encerrando Programa...")
+        sair = 0
 
+        clean()
+    
 os.system("pause")
