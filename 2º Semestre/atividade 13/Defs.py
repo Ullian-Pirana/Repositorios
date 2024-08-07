@@ -151,7 +151,7 @@ def excluir():
 
         if escolha == 1:
 
-            if nome.__len__ == 0:
+            if nome.__len__() == 0:
                 
                 print("\t Você não possui nenhuma tarefa... \n")
                 
