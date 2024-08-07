@@ -9,10 +9,11 @@ while sair == 1:
 
     if escolha == 1:
           
-          add()
+        add()
 
     if escolha == 2:
-        pass
+        
+        ver()
     
     if escolha == 3:
         pass
