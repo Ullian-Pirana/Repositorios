@@ -23,7 +23,6 @@ def add():
 
         add = int(input(("O que gostaria de fazer? \n 1 - Adicionar uma tarefa \n 2 - sair \n ---> ")))
 
-        os.system("pause")
         os.system("cls")
 
         
@@ -49,7 +48,6 @@ def add():
 
                 if outro == 1:
 
-                    os.system("pause")
                     os.system("cls")
 
                 elif outro == 2:
@@ -93,7 +91,6 @@ def ver():
 
         escolha = int(input("O que gostaria de fazer? \n 1 - ver as tarefas \n 2 - Sair \n ---> "))
 
-        os.system("pause")
         os.system("cls")
 
         if escolha == 1:
@@ -148,6 +145,8 @@ def excluir():
         print("\t Importante! \n Antes de realizar a exclusão de uma tarefa verifique a posição dela na lista! \n ")
 
         escolha = int(input("O que gostaria de fazer? \n 1 - Excluir uma tarefa \n 2 - sair \n ---> "))
+
+        os.system("cls")
 
         if escolha == 1:
 
