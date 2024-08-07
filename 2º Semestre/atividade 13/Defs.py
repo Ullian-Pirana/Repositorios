@@ -26,8 +26,27 @@ def add():
         os.system("pause")
         os.system("cls")
 
+        
         if add == 1:
-            pass    
+            while add == 1:
+
+                print("\t \t Adionacar Tarefa: \n")
+
+                titulo = input(" insira o Titulo da tarefa: ")
+                desc = input("\n insira a Descrição da tarefa: ")
+                date = input("\n insira a Data da tarefa: ")
+
+                nome.append(titulo)
+                descrição.append(desc)
+                data.append(date)
+
+                print("\n \t Tarefa adicionada...")
+
+                os.system("pause")
+                os.system("cls")
+
+                
+            
 
         elif add == 2:
             print("\t Saindo...")
