@@ -98,20 +98,29 @@ def ver():
 
         if escolha == 1:
 
-            print("\t \t TAREFAS: \n ")
+            if nome.__len__() == 0:
 
-            for chave, valor in Tarefas.items():
-                
-                posição = 1
+                print("\t NENHUMA Tarefa encontrada... \n")
 
-                print(f"\t {chave}: \n")
+                os.system("pause")
+                os.system("cls")
 
-                for quantia in valor:
-                    print(f"{posição}º -- {quantia} \n")
-                    posição += 1
+            else:
 
-            os.system("pause")
-            os.system("cls")
+                print("\t \t TAREFAS: \n ")
+
+                for chave, valor in Tarefas.items():
+                    
+                    posição = 1
+
+                    print(f"\t {chave}: \n")
+
+                    for quantia in valor:
+                        print(f"{posição}º -- {quantia} \n")
+                        posição += 1
+
+                os.system("pause")
+                os.system("cls")
 
         elif escolha == 2:
             
