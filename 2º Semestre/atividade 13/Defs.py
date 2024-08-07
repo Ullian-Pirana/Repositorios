@@ -128,5 +128,6 @@ def ver():
             os.system("pause")
             os.system("cls")
 
-
+def excluir():
+    pass
 
