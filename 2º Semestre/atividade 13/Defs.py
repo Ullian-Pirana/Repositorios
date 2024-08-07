@@ -129,5 +129,97 @@ def ver():
             os.system("cls")
 
 def excluir():
-    pass
+    
+    remover = 1
 
+    while remover == 1:
+
+        print("\t \t Excluir Tarefas: \n ")
+
+        print("\t Importante! \n Antes de realizar a exclusão de uma tarefa verifique a posição dela na lista! \n ")
+
+        escolha = int(input("O que gostaria de fazer? \n 1 - Excluir uma tarefa \n 2 - sair \n ---> "))
+
+        if escolha == 1:
+
+            if nome.__len__ == 0:
+                
+                print("\t Você não possui nenhuma tarefa... \n")
+                
+                os.system("pause")
+                os.system("cls")
+
+            else:
+
+                while escolha == 1:
+
+                    delete = int(input("insira a posição da Tarefa que deseja excluir: "))
+
+                    delet = delete - 1
+
+                    confirmar = int(input("Tem certeza que deseja excluir a tarefa? \n 1 - Sim \n 2 - Não \n ---> "))
+
+                    if confirmar == 1:
+
+                        nome.pop(delet)
+                        descrição.pop(delet)
+                        data.pop(delet)
+
+                        print("\t Tarefa excluida com sucesso!!!")
+
+                        os.system("pause")
+                        os.system("cls")
+
+                        loop = 1
+
+                        while loop == 1:
+
+                            outra = int(input("Gostaria de excluir outra tarefa? \n 1 - Sim \n 2 - Não \n --> "))
+
+                            if outra == 1:
+
+                                loop == 0
+
+                                os.system("pause")
+                                os.system("cls")
+
+                            elif outra == 2:
+
+                                loop = 0
+                                escolha = 0
+
+                                print("\t Saindo...")
+
+                                os.system("pause")
+                                os.system("cls")
+
+                            else:
+
+                                print("\t Opção invalida...")
+
+                                os.system("pause")
+                                os.system("cls")
+
+
+                    elif confirmar == 2:
+
+                        print("\t Cancelando Exclusão...")
+
+                        os.system("pause")
+                        os.system("cls")
+
+        elif escolha == 2:
+
+            print("\t Saindo...")
+
+            remover = 0
+
+            os.system("pause")
+            os.system("cls")
+
+        else:
+
+            print("\t Opção invalida...")
+
+            os.system("pause")
+            os.system("cls")
