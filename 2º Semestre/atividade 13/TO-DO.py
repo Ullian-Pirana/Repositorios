@@ -16,7 +16,8 @@ while sair == 1:
         ver()
     
     if escolha == 3:
-        pass
+        
+        excluir()
     
     if escolha == 4:
         print("\t Encerrando Programa...")
