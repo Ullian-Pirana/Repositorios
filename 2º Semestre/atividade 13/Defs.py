@@ -83,3 +83,10 @@ def add():
             os.system("pause")
             os.system("cls")
 
+def ver():
+
+    print("\t \t Lista Das Tarefas: ")
+
+
+
+
