@@ -168,54 +168,64 @@ def excluir():
 
                     confirmar = int(input("Tem certeza que deseja excluir a tarefa? \n 1 - Sim \n 2 - Não \n ---> "))
 
-                    if confirmar == 1:
+                    if nome.__len__() == 0:
 
-                        nome.pop(delet)
-                        descrição.pop(delet)
-                        data.pop(delet)
-
-                        print("\t Tarefa excluida com sucesso!!!")
+                        print("Você não possui nenhuma tarefa...")
 
                         os.system("pause")
                         os.system("cls")
 
-                        loop = 1
-
-                        while loop == 1:
-
-                            outra = int(input("Gostaria de excluir outra tarefa? \n 1 - Sim \n 2 - Não \n --> "))
-
-                            if outra == 1:
-
-                                loop == 0
-
-                                os.system("pause")
-                                os.system("cls")
-
-                            elif outra == 2:
-
-                                loop = 0
-                                escolha = 0
-
-                                print("\t Saindo...")
-
-                                os.system("pause")
-                                os.system("cls")
-
-                            else:
-
-                                print("\t Opção invalida...")
-
-                                os.system("pause")
-                                os.system("cls")
+                    else:
 
 
-                    elif confirmar == 2:
+                        if confirmar == 1:
 
-                        print("\t Cancelando Exclusão...")
+                            nome.pop(delet)
+                            descrição.pop(delet)
+                            data.pop(delet)
 
-                        os.system("pause")
-                        os.system("cls")
+                            print("\t Tarefa excluida com sucesso!!!")
+
+                            os.system("pause")
+                            os.system("cls")
+
+                            loop = 1
+
+                            while loop == 1:
+
+                                outra = int(input("Gostaria de excluir outra tarefa? \n 1 - Sim \n 2 - Não \n --> "))
+
+                                if outra == 1:
+
+                                    loop == 0
+
+                                    os.system("pause")
+                                    os.system("cls")
+
+                                elif outra == 2:
+
+                                    loop = 0
+                                    escolha = 0
+
+                                    print("\t Saindo...")
+
+                                    os.system("pause")
+                                    os.system("cls")
+
+                                else:
+
+                                    print("\t Opção invalida...")
+
+                                    os.system("pause")
+                                    os.system("cls")
+
+
+                        elif confirmar == 2:
+
+                            print("\t Cancelando Exclusão...")
+
+                            os.system("pause")
+                            os.system("cls")
 
         elif escolha == 2:
 
