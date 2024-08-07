@@ -85,8 +85,48 @@ def add():
 
 def ver():
 
-    print("\t \t Lista Das Tarefas: ")
+    lista = 1
 
+    while lista == 1:
+
+        print("\t \t Lista Das Tarefas: ")
+
+        escolha = int(input("O que gostaria de fazer? \n 1 - ver as tarefas \n 2 - Sair \n ---> "))
+
+        os.system("pause")
+        os.system("cls")
+
+        if escolha == 1:
+
+            print("\t \t TAREFAS: \n ")
+
+            for chave, valor in Tarefas.items():
+                
+                posição = 1
+
+                print(f"\t {chave}: \n")
+
+                for quantia in valor:
+                    print(f"{posição}º -- {quantia} \n")
+                    posição += 1
+
+            os.system("pause")
+            os.system("cls")
+
+        elif escolha == 2:
+            
+            print("\t SAINDO... \n")
+
+            lista = 0
+
+            os.system("pause")
+            os.system("cls")
+
+        else:
+            print("\t Opção invalida...")
+
+            os.system("pause")
+            os.system("cls")
 
 
 
