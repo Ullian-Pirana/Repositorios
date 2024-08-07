@@ -5,7 +5,7 @@ sair = 1
 while sair == 1:
     
     escolha = menu()
-    clean()
+    os.system("cls")
 
     if escolha == 1:
           
