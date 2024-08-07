@@ -177,21 +177,20 @@ def excluir():
 
                     else:
 
+                        loop = 1
 
-                        if confirmar == 1:
+                        while loop == 1:
 
-                            nome.pop(delet)
-                            descrição.pop(delet)
-                            data.pop(delet)
+                            if confirmar == 1:
 
-                            print("\t Tarefa excluida com sucesso!!!")
+                                nome.pop(delet)
+                                descrição.pop(delet)
+                                data.pop(delet)
 
-                            os.system("pause")
-                            os.system("cls")
+                                print("\t Tarefa excluida com sucesso!!!")
 
-                            loop = 1
-
-                            while loop == 1:
+                                os.system("pause")
+                                os.system("cls")
 
                                 outra = int(input("Gostaria de excluir outra tarefa? \n 1 - Sim \n 2 - Não \n --> "))
 
