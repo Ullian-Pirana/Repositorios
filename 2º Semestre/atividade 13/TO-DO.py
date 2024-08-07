@@ -8,7 +8,8 @@ while sair == 1:
     clean()
 
     if escolha == 1:
-        pass
+          
+          add()
 
     if escolha == 2:
         pass
