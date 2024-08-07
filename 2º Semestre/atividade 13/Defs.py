@@ -29,7 +29,7 @@ def add():
         if add == 1:
             while add == 1:
 
-                print("\t \t Adionacar Tarefa: \n")
+                print("\t \t Adicionar Tarefa: \n")
 
                 titulo = input(" insira o Titulo da tarefa: ")
                 desc = input("\n insira a Descrição da tarefa: ")
@@ -41,6 +41,7 @@ def add():
 
                 print("\n \t Tarefa adicionada...")
 
+                os.system("cls")
                 os.system("pause")
                 os.system("cls")
 
