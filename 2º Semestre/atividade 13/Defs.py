@@ -154,6 +154,8 @@ def excluir():
             if nome.__len__() == 0:
                 
                 print("\t Você não possui nenhuma tarefa... \n")
+
+                remover = 0
                 
                 os.system("pause")
                 os.system("cls")
@@ -168,55 +170,46 @@ def excluir():
 
                     confirmar = int(input("Tem certeza que deseja excluir a tarefa? \n 1 - Sim \n 2 - Não \n ---> "))
 
-                    if nome.__len__() == 0:
+                    loop = 1
 
-                        print("Você não possui nenhuma tarefa...")
+                    while loop == 1:
 
-                        os.system("pause")
-                        os.system("cls")
+                        if confirmar == 1:
 
-                    else:
+                            nome.pop(delet)
+                            descrição.pop(delet)
+                            data.pop(delet)
 
-                        loop = 1
+                            print("\t Tarefa excluida com sucesso!!!")
 
-                        while loop == 1:
+                            os.system("pause")
+                            os.system("cls")
 
-                            if confirmar == 1:
+                            outra = int(input("Gostaria de excluir outra tarefa? \n 1 - Sim \n 2 - Não \n --> "))
 
-                                nome.pop(delet)
-                                descrição.pop(delet)
-                                data.pop(delet)
+                            if outra == 1:
 
-                                print("\t Tarefa excluida com sucesso!!!")
+                                loop == 0
 
                                 os.system("pause")
                                 os.system("cls")
 
-                                outra = int(input("Gostaria de excluir outra tarefa? \n 1 - Sim \n 2 - Não \n --> "))
+                            elif outra == 2:
 
-                                if outra == 1:
+                                loop = 0
+                                escolha = 0
 
-                                    loop == 0
+                                print("\t Saindo...")
 
-                                    os.system("pause")
-                                    os.system("cls")
+                                os.system("pause")
+                                os.system("cls")
 
-                                elif outra == 2:
+                            else:
 
-                                    loop = 0
-                                    escolha = 0
+                                print("\t Opção invalida...")
 
-                                    print("\t Saindo...")
-
-                                    os.system("pause")
-                                    os.system("cls")
-
-                                else:
-
-                                    print("\t Opção invalida...")
-
-                                    os.system("pause")
-                                    os.system("cls")
+                                os.system("pause")
+                                os.system("cls")
 
 
                         elif confirmar == 2:
