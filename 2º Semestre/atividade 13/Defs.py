@@ -45,11 +45,34 @@ def add():
                 os.system("pause")
                 os.system("cls")
 
-                
-            
+                outro = int(input("Gostaria de adicionar outra tarefa? \n 1 - Sim \n 2 - Não \n ---> "))
+
+                if outro == 1:
+
+                    os.system("pause")
+                    os.system("cls")
+
+                elif outro == 2:
+
+                    print("\n \t Voltando ao menu... \n")
+
+                    add = 0
+                    outra = 0
+
+                    os.system("pause")
+                    os.system("cls")
+
+                else:
+
+                    print("\t Opção invalida... ")
+
+                    os.system("pause")
+                    os.system("cls")
 
         elif add == 2:
             print("\t Saindo...")
+
+            outra = 0
 
             os.system("pause")
             os.system("cls")
