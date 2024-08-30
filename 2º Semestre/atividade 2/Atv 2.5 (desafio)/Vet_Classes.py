@@ -11,7 +11,16 @@ class Gato:
         self.dono = dono
         self.idade = idade
 
+    def diagnostico(self, escrever):
+        
+        escrever = input("qual o Diagnostico do animal?\n \t --> ")
 
+        self.diag = escrever
+        os.system("cls")
+
+        print("Diagnostico realizado!")
+        os.system("pause")
+        os.system("cls")
 
 
 
@@ -24,3 +33,14 @@ class Cachorro:
         self.raca = raca
         self.dono = dono
         self.idade = idade
+
+    def diagnostico(self, escrever):
+        
+        escrever = input("qual o Diagnostico do animal?\n \t --> ")
+
+        self.diag = escrever
+        os.system("cls")
+
+        print("Diagnostico realizado!")
+        os.system("pause")
+        os.system("cls")
