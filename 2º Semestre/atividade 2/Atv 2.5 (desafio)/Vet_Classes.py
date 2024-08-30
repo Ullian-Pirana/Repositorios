@@ -22,9 +22,6 @@ class Gato:
         os.system("pause")
         os.system("cls")
 
-
-
-
 class Cachorro:
     
     def __init__(self, nome, raca, dono, idade):
