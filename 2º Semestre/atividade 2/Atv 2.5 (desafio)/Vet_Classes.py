@@ -22,6 +22,9 @@ class Gato:
         os.system("pause")
         os.system("cls")
 
+    def getName(self):
+        return self.nome
+
 class Cachorro:
     
     def __init__(self, nome, raca, dono, idade):
@@ -41,3 +44,6 @@ class Cachorro:
         print("Diagnostico realizado!")
         os.system("pause")
         os.system("cls")
+
+    def getName(self):
+        return self.nome

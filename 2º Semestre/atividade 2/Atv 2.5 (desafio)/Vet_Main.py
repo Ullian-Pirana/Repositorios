@@ -25,11 +25,17 @@ while escolha != None:
             CD = input("Qual o nome do dono do Gato? \n --> ")
             CI = input("Qual a idade do Gato? \n --> ")
 
+            print("\n \n")
+
             Cat = CN
 
             Cat = Gato(CN, CR, CD, CI)
 
             gatos.append(Cat)
+
+            print("Gato cadastrado...")
+            os.system("pause")
+            os.system("cls")
 
         elif QPet == 2:
             
@@ -38,13 +44,17 @@ while escolha != None:
             DD = input("Qual o nome do dono do Cachorro? \n --> ")
             DI = input("Qual a idade do Cachorro? \n --> ")
 
+            print("\n \n")
+
             DOG = DN
 
             DOG = Cachorro(DN, DR, DD, DI)
 
             dog.append(DOG)
 
-
+            print("Cachorro cadastrado...")
+            os.system("pause")
+            os.system("cls")
 
         else:
             
@@ -54,7 +64,31 @@ while escolha != None:
 
 
     elif escolha == 2:
-        pass
+        
+        qual = int(input("Qual animal gostaria de verificar? \n 1 - gato \n 2 - cachorro \n ---> "))
+        os.system("cls")
+
+        if qual == 1:
+            
+            qNome = input("gostaria de verificar os gatos cadastrados? \n 1 - sim \n 2 - não \n ---> ")
+
+            if qNome == 1:
+
+                posicao = 1
+
+                for gatu in gatos:
+                    print(f"{posicao}º {gatu.getName()}")
+
+                    posicao += 1
+
+
+        elif qual == 2:
+            pass
+
+        else:
+            print("opção invalida...")
+            os.system("pause")
+            os.system("cls")
 
     elif escolha == 3:
         sair = int(input("realmente deseja encerrar o programa? \n 1 - Sim \n 2 - Não \n --> "))
