@@ -26,7 +26,11 @@ while escolha != None:
 
             Cat = CN
 
+            Cat = Gato(CN, CR, CD, CI)
+
             gatos.append(Cat)
+
+
 
         elif QPet == 2:
             
@@ -37,9 +41,11 @@ while escolha != None:
 
             DOG = DN
 
+            DOG = Cachorro(DN, DR, DD, DI)
+
             dog.append(DOG)
 
-            cat = ()
+
 
         else:
             
