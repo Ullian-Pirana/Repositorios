@@ -10,6 +10,7 @@ while escolha != None:
           \t \t     ~BEM VINDO!~""")
     
     escolha = int(input("O que veio fazer hoje? \n 1 - cadastrar um Pet \n 2 - verificar um pet \n 3 - sair \n ---> "))
+
     os.system("cls")
 
     if escolha == 1:
@@ -29,8 +30,6 @@ while escolha != None:
             Cat = Gato(CN, CR, CD, CI)
 
             gatos.append(Cat)
-
-
 
         elif QPet == 2:
             
