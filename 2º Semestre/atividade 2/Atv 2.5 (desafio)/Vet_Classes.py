@@ -1,3 +1,6 @@
+import os
+
+
 class Gato:
     
     def __init__(self, nome, raca, dono, idade):
