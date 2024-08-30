@@ -9,18 +9,37 @@ while escolha != None:
     print("""\t \t \t ~~~viVETerinaria~~~
           \t \t     ~BEM VINDO!~""")
     
-    escolha = int(input("O que veio fazer hoje? \n 1 - cadastrar um Pet \n 2 - verificar um pet \n 3 - retirar um pet \n 4 - sair \n ---> "))
+    escolha = int(input("O que veio fazer hoje? \n 1 - cadastrar um Pet \n 2 - verificar um pet \n 3 - sair \n ---> "))
     os.system("cls")
 
     if escolha == 1:
         
         QPet = int(input("O pet é um gato ou um cachorro? \n 1 - Gato \n 2 - Cachorro \n ---> "))
+        os.system("cls")
 
         if QPet == 1:
-            pass
+            
+            CN = input("Qual o nome do Gato? \n --> ")
+            CR = input("Qual a raça do Gato? \n --> ")
+            CD = input("Qual o nome do dono do Gato? \n --> ")
+            CI = input("Qual a idade do Gato? \n --> ")
+
+            Cat = CN
+
+            gatos.append(Cat)
 
         elif QPet == 2:
-            pass
+            
+            DN = input("Qual o nome do Cachorro? \n --> ")
+            DR = input("Qual a raça do Cachorro? \n --> ")
+            DD = input("Qual o nome do dono do Cachorro? \n --> ")
+            DI = input("Qual a idade do Cachorro? \n --> ")
+
+            DOG = DN
+
+            dog.append(DOG)
+
+            cat = ()
 
         else:
             
@@ -33,9 +52,6 @@ while escolha != None:
         pass
 
     elif escolha == 3:
-        pass
-
-    elif escolha == 4:
         sair = int(input("realmente deseja encerrar o programa? \n 1 - Sim \n 2 - Não \n --> "))
 
         if sair == 1:
