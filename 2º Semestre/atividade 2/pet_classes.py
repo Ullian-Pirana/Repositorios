@@ -24,15 +24,21 @@ class gato:
 
     def mudar_nome(self, novo_nome):
 
+        troca = input("qual o novo nome? \n -> ")
+
+        novo_nome = troca
+
         self.nome = novo_nome
 
         print(self.nome)
+
+    def pegar_nome(self):
+        return self.nome
 
 class cachorro:
 
     def __init__(self, nome2):
         self.nome = nome2        
-
 
     def latir(self):
         print("Au Au Au")
@@ -56,6 +62,13 @@ class cachorro:
 
     def mudar_nome(self, novo_nome2):
 
+        troca = input("qual o novo nome? \n -> ")
+
+        novo_nome2 = troca
+
         self.nome = novo_nome2
 
         print(self.nome)
+
+    def pegar_nome(self):
+        return self.nome
