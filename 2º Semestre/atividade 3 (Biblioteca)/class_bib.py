@@ -4,7 +4,7 @@ import os
 #Classe de emprestimo
 class Cliente:
     #Construtor
-    def __init__(self, livro, DDE, DDD, NC, Contato):
+    def __init__(self, NC, livro, DDE, DDD, Contato):
         
         self.NC = NC #Nome cliente
         self.livro = livro #livro emprestado
