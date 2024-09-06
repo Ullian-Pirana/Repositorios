@@ -100,7 +100,7 @@ def emprestar():
 
             emprestado = Cliente(nome, livro, DDE, DDD, contact)
 
-            return emprestado
+            cliente.append(emprestado)
         
     elif empre == 2:
 

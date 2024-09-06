@@ -14,7 +14,8 @@ while sair != 1:
         ver_livro()
 
     elif escolha == 2:
-        pass
+        
+        emprestar()
 
     elif escolha == 3:
         print("\ t Tem certeza que deseja sair? \n 1 - Sim \n 2 - Não")
@@ -44,7 +45,7 @@ while sair != 1:
             os.system("cls")
 
     else:
-        
+
         print("Opção invalida...")
 
         os.system("pause")
