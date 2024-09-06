@@ -1,1 +1,3 @@
+from class_bib import *
+from defs_bib import *
 import os
