@@ -1,3 +1,4 @@
+from listas import *
 import os
 
 #Classe de emprestimo
