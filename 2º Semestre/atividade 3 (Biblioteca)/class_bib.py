@@ -8,7 +8,7 @@ class emprestimo:
         self.livro = livro
         self.DDE = DDE #Data de empréstimo
         self.DDD = DDD #Data de devolução
-        self.NC = NC #Nome completo
+        self.NC = NC #Nome cliente
         self.Contato = Contato #Contanto do usuário
 
     def getLivro(self):
