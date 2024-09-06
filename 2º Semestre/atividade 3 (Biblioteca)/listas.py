@@ -85,7 +85,6 @@ genero = [
 
 Estante = {"titulo do livro": livros, "autor": autores, "genero": genero}
 
-
 livros_reservados = []
 
 autores_reservados = []

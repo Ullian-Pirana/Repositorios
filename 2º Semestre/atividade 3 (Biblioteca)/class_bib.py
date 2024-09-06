@@ -2,13 +2,14 @@ from listas import *
 import os
 
 #Classe de emprestimo
-class emprestimo:
+class Cliente:
     #Construtor
     def __init__(self, livro, DDE, DDD, NC, Contato):
-        self.livro = livro
+        
+        self.NC = NC #Nome cliente
+        self.livro = livro #livro emprestado
         self.DDE = DDE #Data de empréstimo
         self.DDD = DDD #Data de devolução
-        self.NC = NC #Nome cliente
         self.Contato = Contato #Contanto do usuário
 
     def getLivro(self):
