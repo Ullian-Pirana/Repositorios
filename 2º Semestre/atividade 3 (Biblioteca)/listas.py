@@ -93,3 +93,6 @@ autores_reservados = []
 generos_reservados = []
 
 alugados = {"Livros alugados": livros_reservados, "autor": autores_reservados, "genero": generos_reservados}
+
+
+cliente = []
