@@ -153,3 +153,30 @@ def emprestar():
         print("opção invalida...")
         os.system("pause")
         os.system("cls")
+
+def cadastro():
+
+    while True:
+        print("---- CADASTRO DE ANIMAIS ----")
+        print("01 - CACHORRO")
+        print("02 - GATO")
+        print("00 - VOLTAR")
+        print("")
+        animal = int(input("Qual opção deseja ? \n--> "))
+
+        if animal == 1:
+            os.system("cls")
+            print("---- CADASTRO DE CACHORRO ----")
+            nome = input("Infome o nome do seu cachorro\n -->")
+            raca = input("Infome a raça do seu cachorro\n -->")
+            dono = input("Infome o seu nome\n -->")
+            idade = int(input("Infome a idade do seu cachorro\n -->"))
+
+            cachorro = Cachorro(nome,raca,dono,idade)
+            
+            print("")
+            print("CACHORRO CADASTRADO COM SUCESSO")
+            os.system("pause")
+            os.system("cls")
+
+            return cachorro
