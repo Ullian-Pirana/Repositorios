@@ -4,15 +4,13 @@ import os
 #Classe de emprestimo
 class Cliente:
     #Construtor
-    def __init__(self, NC, livro, DDE, DDD, Contato, autor, genero):
+    def __init__(self, NC, livro, DDE, DDD, Contato):
         
         self.NC = NC #Nome cliente
         self.livro = livro #livro emprestado
         self.DDE = DDE #Data de empréstimo
         self.DDD = DDD #Data de devolução
         self.Contato = Contato #Contanto do usuário
-        self.autor = autor #Nome do autor
-        self.genero = genero #Genero do livro
 
     def getLivro(self): #Retornar o  valor 
         return self.livro 
@@ -44,14 +42,3 @@ class Cliente:
     def setContato(self, contato): #Adicionar um valor
         self.contato = contato
         
-    def setAutor(self, autor): #Adicionar um valor
-        self.autor = autor
-        
-    def setGenero(self, genero): #Adicionar um valor
-        self.genero = genero
-        
-    def getAutor(self):  #Retornar o  valor 
-        return self.autor
-    
-    def getGenero(self):  #Retornar o  valor 
-        return self.genero

@@ -5,6 +5,7 @@ import os
 
 sair = None
 
+
 while sair != 1: 
     
     escolha = menu()

@@ -3,17 +3,16 @@ from class_bib import *
 import os
 
 def menu(): #Função de menu
-
     print("\t \t  ~~~BIBLIOTECA MIO NOKAZA~~~")
     print("\t \t \t~~BEM VINDO!~~ \n")
 
     print("""
     \t O que gostaria de fazer?
-          1 - Ver livros Disponiveis
-          2 - Realizar um emprestimo
-          3 - Cadastrar novo livro
-          4-  Sair
-    """)
+        1 - Ver livros Disponiveis
+        2 - Realizar um emprestimo
+        3 - Cadastrar novo livro
+        4 - Sair
+        """)
     
     escolha = int(input("--> ")) #Váriavel para se inserir um valor
 
@@ -81,7 +80,7 @@ def emprestar(): #Função com o objetivo de realizar o empréstimo
 
     print("\t \t Fazer emprestimo \n")
 
-#Variavel onde o cliente escolhe o que gostaria de realizar /// Opção 1: "Realizar novo emprestimo" - "Mudar o emprestimo de um cliente"
+ #Variavel onde o cliente escolhe o que gostaria de realizar /// Opção 1: "Realizar novo emprestimo" - "Mudar o emprestimo de um cliente"
     empre = int(input("O que gostaria de fazer? \n 1 - Realizar novo emprestimo \n 2 - Mudar o emprestimo de um cliente \n --> "))
 
     os.system("cls")
@@ -110,7 +109,7 @@ def emprestar(): #Função com o objetivo de realizar o empréstimo
             print("Usuario que realizaram um emprestimo: \n ")
 
             for user in cliente:
-                print(f"{count}º:\n nome do cliente: {user.getNC()} \n livro emprestado: {user.getLivro()} \n contato: {user.getContato} \n")
+                print(f"{count}º:\n Nome do cliente: {user.getNC()} \n Livro emprestado: {user.getLivro()} \n Contato: {user.getContato()} \n")
 
                 count += 1
 
@@ -124,7 +123,7 @@ def emprestar(): #Função com o objetivo de realizar o empréstimo
 
             if cliente.__len__() <= mudar_empre:
                 if mudar_livro in livros:
-                    cliente(mudar_empre - 1).setLivro(mudar_livro)
+                    cliente[mudar_empre - 1].setLivro(mudar_livro)
 
                     print("Novo cadastro realizado com sucesso! ")
 
