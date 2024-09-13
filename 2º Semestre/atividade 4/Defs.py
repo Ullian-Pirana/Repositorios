@@ -26,13 +26,14 @@ def menu():
 def cadastro():
 
     while True:
-        print("---- CADASTRO DE ANIMAIS ----")
-        print("01 - CACHORRO")
-        print("02 - GATO")
-        print("00 - VOLTAR")
-        print("")
-
+        
         while True:
+
+            print("---- CADASTRO DE ANIMAIS ----")
+            print("01 - CACHORRO")
+            print("02 - GATO")
+            print("00 - VOLTAR")
+            print("")
 
             try:
                 animal = int(input("Qual opção deseja ? \n--> "))
@@ -47,9 +48,10 @@ def cadastro():
 
             case 1:
                 os.system("cls")
-                print("---- CADASTRO DE CACHORRO ----")
 
                 while True:
+
+                    print("---- CADASTRO DE CACHORRO ----")
 
                     try:
                         nome = input("Infome o nome do seu cachorro\n -->")
@@ -76,9 +78,10 @@ def cadastro():
             case 2:
 
                 os.system("cls")
-                print("---- CADASTRO DE GATO ----")
 
                 while True:
+
+                    print("---- CADASTRO DE GATO ----")
 
                     try:
 
@@ -121,13 +124,14 @@ def cadastro():
 def listar(lista):
     
     while True:
-        print("---- LISTA DE ANIMAIS ----")
-        print("01 - LISTAR TODOS OS ANIMAIS")
-        print("02 - LISTAR TODOS OS CACHORROS")
-        print("03 - LISTAR TODOS OS GATOS")
-        print("00 - VOLTAR")
 
         while True:
+
+            print("---- LISTA DE ANIMAIS ----")
+            print("01 - LISTAR TODOS OS ANIMAIS")
+            print("02 - LISTAR TODOS OS CACHORROS")
+            print("03 - LISTAR TODOS OS GATOS")
+            print("00 - VOLTAR")
 
             try:
 
@@ -202,12 +206,13 @@ def listar(lista):
 
 def consulta(lista):
     while True:
-        print("---- CONSULTA DE ANIMAIS ----")       
-        print("01 - DIAGNOSTICAR O ANIMAL")
-        print("02 - VERIFICAR DIAGNOSTICO DO ANIMAL")
-        print("00 - VOLTAR")
 
         while True:
+            
+            print("---- CONSULTA DE ANIMAIS ----")       
+            print("01 - DIAGNOSTICAR O ANIMAL")
+            print("02 - VERIFICAR DIAGNOSTICO DO ANIMAL")
+            print("00 - VOLTAR")
 
             try:
 
