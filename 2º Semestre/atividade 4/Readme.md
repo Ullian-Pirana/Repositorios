@@ -1,0 +1,1 @@
+Atividade para aplicação basica dos conceitos de Try/Except e Match/Case
