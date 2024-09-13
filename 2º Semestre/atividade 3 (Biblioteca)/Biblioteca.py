@@ -1,11 +1,11 @@
-from class_bib import *
-from defs_bib import *
-from listas import *
+from class_bib import * #Importação Pagina das Classes "class_bib"
+from defs_bib import * #Importação Pagina dos defs "defs_bib"
+from listas import * #Importação Pagina das listas "listas"
 import os
 
 sair = None
 
-while sair != 1:
+while sair != 1: 
     
     escolha = menu()
 
@@ -18,6 +18,10 @@ while sair != 1:
         emprestar()
 
     elif escolha == 3:
+        livros.append(cadastro())
+        autores.append(cadastro())
+        genero.append(cadastro())
+    elif escolha == 4:
         print("\ t Tem certeza que deseja sair? \n 1 - Sim \n 2 - Não")
 
         ctz = int(input("---> "))
