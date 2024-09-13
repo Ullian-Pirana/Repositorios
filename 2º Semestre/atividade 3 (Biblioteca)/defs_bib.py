@@ -2,7 +2,7 @@ from listas import *
 from class_bib import *
 import os
 
-def menu():
+def menu(): #Função de menu
 
     print("\t \t  ~~~BRIBRIOTECA DO ALEX~~~")
     print("\t \t \t~~BEM VINDO!~~ \n")
@@ -11,15 +11,17 @@ def menu():
     \t O que gostaria de fazer?
           1 - Ver livros Disponiveis
           2 - Realizar um emprestimo
-          3 - Sair
+          3 - Cadastrar novo livro
+          4- Sair
     """)
     
-    escolha = int(input("--> "))
+    escolha = int(input("--> ")) #Váriavel para se inserir um valor
 
     os.system("cls")
 
-    return escolha
+    return escolha #Retornara valor armazenado na váriavel escolha
 
+#
 def ver_livro():
 
     print(" \t Estante de livros: \n ")
@@ -155,28 +157,13 @@ def emprestar():
         os.system("cls")
 
 def cadastro():
-
     while True:
-        print("---- CADASTRO DE ANIMAIS ----")
-        print("01 - CACHORRO")
-        print("02 - GATO")
-        print("00 - VOLTAR")
-        print("")
-        animal = int(input("Qual opção deseja ? \n--> "))
+        print("---- CADASTRO DE LIVROS ----")
+        nome = input("Infome o nome do livro\n -->")
+        genero = input("Infome o gênero do seu livro\n -->")
+        autor = input("Informe o autor do livro \n -->")
 
-        if animal == 1:
-            os.system("cls")
-            print("---- CADASTRO DE CACHORRO ----")
-            nome = input("Infome o nome do seu cachorro\n -->")
-            raca = input("Infome a raça do seu cachorro\n -->")
-            dono = input("Infome o seu nome\n -->")
-            idade = int(input("Infome a idade do seu cachorro\n -->"))
-
-            cachorro = Cachorro(nome,raca,dono,idade)
-            
-            print("")
-            print("CACHORRO CADASTRADO COM SUCESSO")
-            os.system("pause")
-            os.system("cls")
-
-            return cachorro
+        livro = (nome, genero, autor)
+        
+        return livro
+        
