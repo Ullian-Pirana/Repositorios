@@ -2,14 +2,24 @@ import os
 from classes import Gato, Cachorro
 
 def menu():
-    print("---- SISTEMA DE VETERINARIA ----")
-    print("01 - CADASTRAR ANIMAIS")
-    print("02 - LISTAR ANIMAIS")
-    print("03 - CONSULTA")
-    print("00 - SAIR")
-    print("")
-    escolha = int(input("Qual opção deseja ? \n--> "))
-    return escolha
+    while True:
+        print("---- SISTEMA DE VETERINARIA ----")
+        print("01 - CADASTRAR ANIMAIS")
+        print("02 - LISTAR ANIMAIS")
+        print("03 - CONSULTA")
+        print("00 - SAIR")
+        print("")
+        
+        try:
+
+            escolha = int(input("Qual opção deseja ? \n--> "))
+            return escolha
+            break
+
+        except Exception as e:
+            print(f"Impossivel concluir operação \n erro encontrado: {e}")
+            os.system("pause")
+            os.system("cls")
 
 def cadastro():
 
@@ -70,7 +80,6 @@ def cadastro():
             os.system("pause")
             os.system("cls")
         
-
 def listar(lista):
     while True:
         print("---- LISTA DE ANIMAIS ----")
@@ -137,7 +146,6 @@ def listar(lista):
             print("OPÇÃO INVALIDA")
             os.system("pause")
             os.system("cls")
-
 
 def consulta(lista):
     while True:
