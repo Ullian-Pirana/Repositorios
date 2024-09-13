@@ -8,24 +8,27 @@ while sair != 0:
     escolha = menu()
     os.system("cls")
 
-    if escolha == 1:
+    match escolha:
 
-        animais.append(cadastro())
+        case 1:
 
-    elif escolha == 2:
+            animais.append(cadastro())
 
-        listar(animais)
+        case 2:
 
-    elif escolha == 3:
+            listar(animais)
 
-        consulta(animais)
+        case 3:
 
-    elif escolha == 0:
-        print("")
-        os.system("pause")
-        sair = 0
-    else:
-        print("OPÇÃO INVALIDA")
-        print("")
-        os.system("pause")
-        os.system("cls")
+            consulta(animais)
+
+        case 0:
+            print("")
+            os.system("pause")
+            sair = 0
+
+        case _:
+            print("OPÇÃO INVALIDA")
+            print("")
+            os.system("pause")
+            os.system("cls")

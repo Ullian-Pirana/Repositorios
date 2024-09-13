@@ -3,6 +3,7 @@ from classes import Gato, Cachorro
 
 def menu():
     while True:
+        
         print("---- SISTEMA DE VETERINARIA ----")
         print("01 - CADASTRAR ANIMAIS")
         print("02 - LISTAR ANIMAIS")
@@ -17,6 +18,7 @@ def menu():
             break
 
         except Exception as e:
+
             print(f"Impossivel concluir operação \n erro encontrado: {e}")
             os.system("pause")
             os.system("cls")
