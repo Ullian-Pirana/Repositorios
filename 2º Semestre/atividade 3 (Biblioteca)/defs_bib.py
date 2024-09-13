@@ -21,20 +21,20 @@ def menu(): #Função de menu
 
     return escolha #Retornara valor armazenado na váriavel escolha
 
-#
+#Função de pesquisa de livros
 def ver_livro():
 
     print(" \t Estante de livros: \n ")
-
+    #Váriavel para inserir o número da estante escolhida 
     verificar = int(input("Como gostaria de verificar os livros? \n 1 - Ver todos \n 2 - Gênero \n 3 - Autores \n \t ---> "))
 
     os.system("cls")
-
+    #Se verficar for igual a 1, vai listar todos os livros 
     if verificar == 1:
 
         print("\t Todos os Livros: \n ")
-
-        for item, valor in Estante.items():
+        
+        for item, valor in Estante.items(): 
             print(f"\n {item}: \n")
             posicao = 1
 
@@ -46,7 +46,7 @@ def ver_livro():
 
         os.system("pause")
         os.system("cls")
-
+    #Se verificar for igual a 2, vai listar todos gêneros disponíveis
     elif verificar == 2:
         
         print("""\t Gêneros disponiveis:
@@ -61,7 +61,7 @@ def ver_livro():
             Aventura
             Existencialismo
             Não-Ficção""")
-        
+        #Váriavel para escolher um genero em especifico
         escolha_gen = input("---> ")
 
         for chave, valor in Estante.items():
@@ -71,17 +71,13 @@ def ver_livro():
                         print(f"{chave} : {item}")
                     
 
-
-
-    elif verificar == 3:
-        pass
-
+    #Se não ser nenhuma destas opções será inválido
     else:
         print("Opção invalida...")
         os.system("pause")
         os.system("cls")
 
-def emprestar():
+def emprestar(): #Função com o
 
     print("\t \t Fazer emprestimo \n")
 
@@ -163,7 +159,9 @@ def cadastro():
         genero = input("Infome o gênero do seu livro\n -->")
         autor = input("Informe o autor do livro \n -->")
 
-        livro = (nome, genero, autor)
+        livro = (nome)
+        generoTipo = (genero)
+        autorLivro = (autor)
         
-        return livro
+        return livro, generoTipo, autorLivro
         
