@@ -32,13 +32,16 @@ def cadastro():
         print("00 - VOLTAR")
         print("")
 
-        try:
-            animal = int(input("Qual opção deseja ? \n--> "))
+        while True:
 
-        except Exception as e:
-            print(f"Impossivel concluir operação \n erro encontrado: {e}")
-            os.system("pause")
-            os.system("cls")
+            try:
+                animal = int(input("Qual opção deseja ? \n--> "))
+                break
+
+            except Exception as e:
+                print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                os.system("pause")
+                os.system("cls")
 
         match animal:
 
@@ -124,16 +127,19 @@ def listar(lista):
         print("03 - LISTAR TODOS OS GATOS")
         print("00 - VOLTAR")
 
-        try:
+        while True:
 
-            escolha = int(input("Qual opção deseja ? \n--> "))
-            os.system("cls")
+            try:
 
-        except Exception as e:
+                escolha = int(input("Qual opção deseja ? \n--> "))
+                os.system("cls")
+                break
 
-            print(f"Impossivel concluir operação \n erro encontrado: {e}")
-            os.system("pause")
-            os.system("cls")
+            except Exception as e:
+
+                print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                os.system("pause")
+                os.system("cls")
 
         match escolha:
 
@@ -201,15 +207,18 @@ def consulta(lista):
         print("02 - VERIFICAR DIAGNOSTICO DO ANIMAL")
         print("00 - VOLTAR")
 
-        try:
+        while True:
 
-            escolha = int(input("Qual opção deseja ? \n--> "))
+            try:
 
-        except Exception as e:
+                escolha = int(input("Qual opção deseja ? \n--> "))
+                break
 
-            print(f"Impossivel concluir operação \n erro encontrado: {e}")
-            os.system("pause")
-            os.system("cls")
+            except Exception as e:
+
+                print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                os.system("pause")
+                os.system("cls")
         
         match escolha:
 
@@ -260,7 +269,7 @@ def consulta(lista):
                 os.system("pause")
                 os.system("cls")
                 break
-            
+
             case _:
                 print("")
                 print("OPÇÃO INVALIDA")
