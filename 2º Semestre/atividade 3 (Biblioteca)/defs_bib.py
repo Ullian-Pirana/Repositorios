@@ -7,7 +7,7 @@ def menu(): #Função de menu
     print("\t \t \t~~BEM VINDO!~~ \n")
 
     print("""
-    \t O que gostaria de fazer?
+    \t  O que gostaria de fazer?
         1 - Ver livros Disponiveis
         2 - Realizar um emprestimo
         3 - Cadastrar novo livro
@@ -68,7 +68,9 @@ def ver_livro():
                 for item in valor: 
                     if item == escolha_gen: #Item vai ser o genero inserido na variavel escolha_gen
                         print(f"{chave} : {item}")# Se a condição for verdadeira vai imprimir valores de chave e item
-                    
+    
+        os.system("pause")
+        os.system("cls")
 
     #Se não ser nenhuma destas opções será inválido
     else:
@@ -89,80 +91,99 @@ def emprestar(): #Função com o objetivo de realizar o empréstimo
         
         nome = input("Nome do cliente: ") #Inserir nome do cliente
         livro = input("Livro a ser emprestado: ") # O nome do livro a ser emprestado
-        DDE = input("Data de retirada: ") #DDE = data de empréstimadariter ad aid ,
-        DDD = input("Data da Devolução: ")
-        contact = input("Forma de contato com o cliente: ")
+        DDE = input("Data de retirada: ") #DDE = data de empréstimo, data de retirada
+        DDD = input("Data da Devolução: ") #DDD = data de devolução, data de entrega
+        contact = input("Forma de contato com o cliente: ") #Inserir a forma de contato do cliente
 
+        #Verifica se o livro inserido está presente na lista
         if livro in livros:
             print("Emprestimo Realizado!")
-
+            #Instância 
             emprestado = Cliente(nome, livro, DDE, DDD, contact)
 
+            #Adiciona na lista cliente as informações da instância
             cliente.append(emprestado)
+
+        os.system("pause")
+        os.system("cls")
         
+    #Função de empréstimo  
     elif empre == 2:
 
+        #Mede o comprimento da lista
         if cliente.__len__() >= 1:
-
+            #Cria um contador para a lista 
             count = 1
 
             print("Usuario que realizaram um emprestimo: \n ")
-
+            #Verifica se o cliente existe na lista 
             for user in cliente:
                 print(f"{count}º:\n Nome do cliente: {user.getNC()} \n Livro emprestado: {user.getLivro()} \n Contato: {user.getContato()} \n")
-
+                #Imrpime as infroamções do cliente
                 count += 1
+                #Incrementa mais um na lista quando fizer mais um empréstimo 
 
             os.system("pause")
 
+            #Inserir a posição do cliente desejado na lista
             mudar_empre = int(input("Qual a posição do usuario que vc deseja realizar a mudança do livro emprestado? \n --> "))
             mudar_livro = input("Qual o novo livro do cliente? \n ---> ")
 
             os.system("cls")
 
-
+            #Verifica o número do cliente 
             if cliente.__len__() <= mudar_empre:
-                if mudar_livro in livros:
-                    cliente[mudar_empre - 1].setLivro(mudar_livro)
+                if mudar_livro in livros:  #Verifica se o novo livro está dentro da lista
+                    cliente[mudar_empre - 1].setLivro(mudar_livro) #Muda as informações de empréstimo 
 
                     print("Novo cadastro realizado com sucesso! ")
 
                     os.system("pause")
                     os.system("cls")
 
+                #Caso o livro não esteja cadastrado 
                 else:
-                    print("livro não encontrado...")
+                    print("Livro não encontrado...")
 
                     os.system("pause")
                     os.system("cls")
 
+            #Caso o usuário inserido não existir
             else:
-                print("Nenhum usario encontrado...")
+                print("Nenhum usuário encontrado...")
 
                 os.system("pause")
                 os.system("cls")
 
+        #Caso um usuário não tenha feito um empréstimo e registrado seu nome
         else:
-            print("nenhum usuario cadastrado...")
+            print("Nenhum usuário cadastrado...")
             os.system("pause")
             os.system("cls")
 
+    #Caso o usuário insira uma opção inexistente
     else:
-        print("opção invalida...")
+        print("Opção inválida...")
         os.system("pause")
         os.system("cls")
 
+##Função Cadasto do nome dos livros literários, onde é cadastrado e salvo dentro da lista "livro"
 def cadastro():
     print("---- CADASTRO DE LIVROS ----")
     nome = input("Informe o nome do livro\n -->")
-    livro = (nome)
+
+    livro = (nome)  
         
     return livro
+
+#Função Cadasto de generos literários, onde é cadastrado e salvo dentro da lista "genero"
 def cadastro2():
     genero = input("Informe o gênero do seu livro\n -->")
 
     generoTipo = (genero)
     return generoTipo
+
+#Função Cadasto do autor dos livros, onde é cadastrado e salvo dentro da lista "autor"
 def cadastro3():
     autor = input("Informe o autor do livro \n -->")
 

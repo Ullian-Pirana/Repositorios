@@ -23,8 +23,9 @@ while sair != 1:
         autores.append(cadastro2())
         genero.append(cadastro3())
         escolha = menu()
+
     elif escolha == 4:
-        print("\ t Tem certeza que deseja sair? \n 1 - Sim \n 2 - Não")
+        print(" Tem certeza que deseja sair? \n 1 - Sim \n 2 - Não")
 
         ctz = int(input("---> "))
 
