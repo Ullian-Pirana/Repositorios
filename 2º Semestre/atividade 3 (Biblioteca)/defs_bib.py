@@ -4,7 +4,7 @@ import os
 
 def menu(): #Função de menu
 
-    print("\t \t  ~~~BRIBRIOTECA DO ALEX~~~")
+    print("\t \t  ~~~BIBLIOTECA MIO NOKAZA~~~")
     print("\t \t \t~~BEM VINDO!~~ \n")
 
     print("""
