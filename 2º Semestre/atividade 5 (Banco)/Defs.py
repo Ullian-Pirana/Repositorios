@@ -114,8 +114,7 @@ def tela_banco(usuario):
 
     print("\t \t ~~~~ULL Bank~~~ \n ")
 
-    print(f"\t Usuario: {usuario.verUsuario()} \n")
-
+    print(f"\t Usuario: {usuario.verUsuario()}")
     print(f"Saldo: {usuario.verSaldo()}")
 
     while True:
@@ -131,3 +130,43 @@ def tela_banco(usuario):
             print(f" \t impossivel realizar operação, erro encontrado: {e}")
 
         return usar
+    
+def corrente(usario):
+
+    while True:
+
+        print("\t \t ~~~ULL Bank~~~")
+        print("\t Conta corrente \n")
+
+        print(f"\t Usuario: {usario.verUsuario()}")
+
+        print(f"Saldo: {usario.verSaldo()}")
+
+        while True:
+
+            try:
+                dindin = int(input("O que gostaria de fazer? \n 1- Depositar \n 2- Sacar \n 3- Realizar Pagamento \n 4- Sair \n ---> "))
+
+                os.system("cls")
+
+                break
+
+            except Exception as e:
+                print(f" \t impossivel realizar operação, erro encontrado: {e}")    
+
+                os.system("pause")
+                os.system("cls")
+
+        return dindin
+
+
+
+
+
+
+
+
+
+
+
+
