@@ -62,8 +62,8 @@ class Cadastro:
 
 class Cliente(Cadastro):
     
-    def __init__(self, nome, senha, saldo):
-        super().__init__(nome, senha)
+    def __init__(self, nome, senha, email, cpf, rg, idade, cep, saldo):
+        super().__init__(nome, senha, email, cpf, rg, idade, cep)
         self.__saldo = saldo
 
     def verSaldo(self):
