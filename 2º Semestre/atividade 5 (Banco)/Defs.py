@@ -12,8 +12,6 @@ def menu():
             try:
                 escolha = int(input("Qual opção deseja ? \n ---> "))
 
-                return escolha
-
                 os.system("cls")
 
                 break
@@ -21,12 +19,61 @@ def menu():
             except Exception as e:
 
                 print(f"Impossivel concluir operação \n erro encontrado: {e}")
-                
+
                 os.system("pause")
                 os.system("cls")
-                break
+            
+            return escolha
 
-    
+def cadastro():
+
+    print("\t \t Cadastro~~~\n")
+
+    while True:
+
+        try:
+
+            nome = input("Nome Completo: ")
+            cpf = input("CPF: ")
+            rg = input("RG: ")
+            email = input("E-Mail: ")
+            cep = input("CEP: ")
+            senha = input("Senha: ")
+
+            os.system("cls")
+
+            break
+
+        except Exception as e:
+            print(f" \t impossivel realizar operação, erro encontrado: {e}")
+
+        if cpf not in cpfs:
+            cpfs.append(cpf)
+
+            print("\t Cadastro quase finalizado.... \n \t para finalizar o cadastro nos informe o saldo inicial de sua conta...\n")
+            print("OBS: O Saldo é transferido automaticamente de uma conta ativa sua cadastrado em outro banco, em caso de ser sua primeira conta o valor do saldo depositado ira ser cobrado como emprestimo e sera quitado utilizando valores depositados em sua conta no futuro!")
+            print("Todos os processos são legalizados de acordo com a lei Nº9314.213.4927, em caso de tentiva de golpe nossa equipe juridica será acionada!! \n")
+
+
+            saldo = input("Insira o Valor do saldo que deseja tranferir para a conta\n ---> ")
+
+            cadastrado = Cliente(nome, senha, email, cpf, rg, cep, saldo)
+
+            os.system("cls")
+
+            print("\t --->Cadastro Realizado com Sucesso!<---")
+
+            os.system("pause")
+            os.system("cls")
+
+            return cadastrado
+        
+        else:
+            print("Cpf Já Cadastrado...")
+
+            os.system("pause")
+            os.system("cls")
+
 
 def login():
 
@@ -54,6 +101,8 @@ def login():
     for user in cadastros:
         if user.verCpf() == acesso and user.verSenha() == senha:
                 
+                print(f"\t Bem Vindo {user.verUsuario()}")
+                
                 return user
         
         else:
@@ -62,3 +111,8 @@ def login():
             os.system("pause")
             os.system("cls")
 
+def banco(usuario):
+
+    print("\t \t ~~~~ULL Bank~~~ \n ")
+
+    print
