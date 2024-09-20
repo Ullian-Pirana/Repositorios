@@ -14,7 +14,7 @@ class Cadastro:
     
     #DEF'S para VERIFICAR informações
     
-    def verNome(self):
+    def verUsuario(self):
         return self.__nome
     
     def verSenha (self):
@@ -58,7 +58,7 @@ class Cliente(Cadastro):
     def __init__(self, nome, senha, email, cpf, rg, cep, saldo, poupanca):
         super().__init__(nome, senha, email, cpf, rg, cep)
         self.__saldo = saldo
-        self.__poupanca = 0.0
+        self.__poupanca = poupanca
 
     def verSaldo(self):
         return self.__saldo

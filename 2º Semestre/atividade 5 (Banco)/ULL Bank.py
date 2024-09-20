@@ -8,7 +8,7 @@ while True:
 
     match escolha:
         case 1:
-            user = login()
+            user = login(cadastros)
             usar = tela_banco(user)
 
             match usar:
