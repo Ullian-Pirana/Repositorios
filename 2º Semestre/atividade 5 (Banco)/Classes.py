@@ -58,7 +58,7 @@ class Cliente(Cadastro):
     def __init__(self, nome, senha, email, cpf, rg, cep, saldo, poupanca):
         super().__init__(nome, senha, email, cpf, rg, cep)
         self.__saldo = saldo
-        self.__poupanca = 0
+        self.__poupanca = 0.0
 
     def verSaldo(self):
         return self.__saldo
