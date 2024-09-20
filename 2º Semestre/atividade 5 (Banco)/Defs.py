@@ -95,12 +95,12 @@ def login():
             os.system("pause")
             os.system("cls")
 
-    for user in cadastros:
-        if user.verCpf() == acesso and user.verSenha() == senha:
+    for userr in cadastros:
+        if acesso == userr.verCpf() and senha == userr.verSenha():
                 
-                print(f"\t Bem Vindo {user.verUsuario()}")
+                print(f"\t Bem Vindo {userr.verUsuario()}")
                 
-                return user
+                return userr
         
         else:
             print("Nenhum cadastro encontrado!")

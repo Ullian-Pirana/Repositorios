@@ -1,4 +1,5 @@
 import os 
+from Listas import *
 from Classes import *
 from Defs import *
 
