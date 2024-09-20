@@ -1,13 +1,12 @@
 class Cadastro:
 
-    def __init__(self, nome, senha, email, cpf, rg, idade, cep):
+    def __init__(self, nome, senha, email, cpf, rg, cep):
 
         self.__nome = nome
         self.__senha = senha
         self.__email = email
         self.__cpf = cpf
         self.__rg = rg
-        self.__idade = idade
         self.__cep = cep
 
     def __str__(self):
@@ -30,9 +29,6 @@ class Cadastro:
     def verRg (self):
         return self.__rg
     
-    def verIdade (self):
-        return self.__idade
-    
     def verCep (self):
         return self.__cep
     
@@ -53,17 +49,14 @@ class Cadastro:
     def setRg (self, rg):
         self.__rg = rg
     
-    def setIdade (self, idade):
-        self.__idade = idade
-    
     def setCep (self, cep):
         self.__cep = cep
 
 
 class Cliente(Cadastro):
     
-    def __init__(self, nome, senha, email, cpf, rg, idade, cep, saldo):
-        super().__init__(nome, senha, email, cpf, rg, idade, cep)
+    def __init__(self, nome, senha, email, cpf, rg, cep, saldo):
+        super().__init__(nome, senha, email, cpf, rg, cep)
         self.__saldo = saldo
 
     def verSaldo(self):
