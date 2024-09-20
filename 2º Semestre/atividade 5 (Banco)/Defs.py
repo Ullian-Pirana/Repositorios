@@ -55,7 +55,7 @@ def cadastro():
             print("Todos os processos são legalizados de acordo com a lei Nº9314.213.4927, em caso de tentiva de golpe nossa equipe juridica será acionada!! \n")
 
 
-            saldo = input("Insira o Valor do saldo que deseja tranferir para a conta\n ---> ")
+            saldo = float(input("Insira o Valor do saldo que deseja tranferir para a conta\n ---> "))
 
             cadastrado = Cliente(nome, senha, email, cpf, rg, cep, saldo)
 
@@ -73,7 +73,6 @@ def cadastro():
 
             os.system("pause")
             os.system("cls")
-
 
 def login():
 
@@ -111,8 +110,24 @@ def login():
             os.system("pause")
             os.system("cls")
 
-def banco(usuario):
+def tela_banco(usuario):
 
     print("\t \t ~~~~ULL Bank~~~ \n ")
 
-    print
+    print(f"\t Usuario: {usuario.verUsuario()} \n")
+
+    print(f"Saldo: {usuario.verSaldo()}")
+
+    while True:
+
+        try:
+            usar = int(input("Qual conta gostaria de utilizar? \n 1- Conta Corrente \n 2- Conta Poupança \n \t ---> "))
+
+            os.system("cls")
+
+            break
+
+        except Exception as e:
+            print(f" \t impossivel realizar operação, erro encontrado: {e}")
+
+        return usar
