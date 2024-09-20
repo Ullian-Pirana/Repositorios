@@ -1,3 +1,4 @@
 #Listas
 cadastros = []
 funcionarios = []
+cpfs = []
