@@ -35,8 +35,6 @@ def login():
             acesso = input("\t CPF: ")
             senha = input("\t Senha: ")
 
-            os.system("cls")
-
             break
              
         except Exception as e:
@@ -48,11 +46,10 @@ def login():
 
     for user in cadastros:
         if user.verCpf == acesso and user.verSenha == senha:
-                print(f"\t \t Bem vindo {user.verUsuario}")
+                print()
 
         else:
             print("Nenhum cadastro encontrado!")
 
             os.system("pause")
             os.system("cls")
-
