@@ -12,16 +12,21 @@ def menu():
             try:
                 escolha = int(input("Qual opção deseja ? \n ---> "))
 
+                return escolha
+
                 os.system("cls")
 
-                return escolha
                 break
 
             except Exception as e:
-                print(f"Impossivel concluir operação \n erro encontrado: {e}")
 
+                print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                
                 os.system("pause")
                 os.system("cls")
+                break
+
+    
 
 def login():
 
@@ -47,9 +52,10 @@ def login():
             os.system("cls")
 
     for user in cadastros:
-        if user.verCpf == acesso and user.verSenha == senha:
-                print(f"\t \t Bem vindo {user.verUsuario}")
-
+        if user.verCpf() == acesso and user.verSenha() == senha:
+                
+                return user
+        
         else:
             print("Nenhum cadastro encontrado!")
 
