@@ -131,36 +131,97 @@ def tela_banco(usuario):
 
         return usar
     
-def corrente(usario):
+def corrente(usuario):
+
+
+    print("\t \t ~~~ULL Bank~~~")
+    print("\t Conta corrente \n")
+
+    print(f"\t Usuario: {usuario.verUsuario()}")
+    print(f"\t Saldo: {usuario.verSaldo()}")
 
     while True:
 
-        print("\t \t ~~~ULL Bank~~~")
-        print("\t Conta corrente \n")
+        try:
+            dindin = int(input("O que gostaria de fazer? \n 1- Depositar \n 2- Realizar Pagamento \n 3- Sair \n ---> "))
 
-        print(f"\t Usuario: {usario.verUsuario()}")
+            os.system("cls")
 
-        print(f"Saldo: {usario.verSaldo()}")
+            break
+
+        except Exception as e:
+            print(f" \t impossivel realizar operação, erro encontrado: {e}")    
+
+            os.system("pause")
+            os.system("cls")
+
+    return dindin
+
+def deposito(usuario):
+
+    print("\t \t Deposito \n")
+    print(f"\t Usuario: {usuario.verUsuario()}")
+    print(f"\t Saldo: {usuario.verSaldo()} \n")
+
+    while True:
+        try:
+            deposito = float(input("valor do Deposito: "))
+
+            break
+
+        except Exception as e:
+            print(f" \t impossivel realizar operação, erro encontrado: {e}")
+
+    sald0 = usuario.verSaldo() + deposito
+
+    usuario.setSaldo(sald0)
+
+    print("Transação Realizada com sucesso!")
+
+    os.system("pause")
+    os.system("cls")
+
+def pix(usuario):
+    print("\t \t ~~Sacar \n")
+
+    print(f"\t Usuario: {usuario.verUsuario()}")
+    print(f"\t Saldo: {usuario.verSaldo()}")
+
+    saldo = usuario.verSaldo()
+
+    if saldo <= 1:
+        print("Nenhum Saldo disponivel...")
+
+        os.system("pause")
+        os.system("cls")
+
+    else:
 
         while True:
-
             try:
-                dindin = int(input("O que gostaria de fazer? \n 1- Depositar \n 2- Sacar \n 3- Realizar Pagamento \n 4- Sair \n ---> "))
-
-                os.system("cls")
+                recebe = input("Insira o CPF do Destinatario: ")
+                saque = float(input("Valor do pagamento: "))
 
                 break
 
             except Exception as e:
-                print(f" \t impossivel realizar operação, erro encontrado: {e}")    
+                print(f" \t impossivel realizar operação, erro encontrado: {e}")
 
-                os.system("pause")
-                os.system("cls")
+        saldoo = saldo - saque
 
-        return dindin
+        if saldoo > 0:
+            print(f"Pagamento realizado com Sucesso para {recebe}!")
 
+            usuario.setSaldo(saldoo)
 
+            os.system("pause")
+            os.system("cls")
 
+        else:
+            print("Impossivel Realizar transação, você não possui toda essa grana :(")
+
+            os.system("pause")
+            os.system("cls")
 
 
 
