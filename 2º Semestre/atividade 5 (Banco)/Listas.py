@@ -1,2 +1,4 @@
-cadastro = []
+from Defs import *
+
+cadastros = []
 funcionarios = []

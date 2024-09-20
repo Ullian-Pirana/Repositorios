@@ -1,5 +1,6 @@
 import os
 from Listas import *
+from Classes import *
 
 def menu():
 
@@ -21,4 +22,24 @@ def menu():
 
                 os.system("pause")
                 os.system("cls")
-                return escolha
+
+def login():
+
+    print("\t \t ~~~ULL Bank~~~ \n")
+
+    print("Bem vindo ao Ull bank, para realizar o acesso a sua conta por favor nos informe suas informações de acesso: \n")
+
+    while True:
+        try:
+
+            acesso = input("\t CPF: ")
+            senha = input("\t Senha: ")
+
+            break
+             
+        except Exception as e:
+
+            print(f" \t impossivel realizar acesso, erro encontrado: {e}")
+
+            os.system("pause")
+            os.system("cls")
