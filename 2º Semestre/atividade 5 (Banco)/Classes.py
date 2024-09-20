@@ -14,7 +14,7 @@ class Cadastro:
     
     #DEF'S para VERIFICAR informações
     
-    def verUsuario(self):
+    def verNome(self):
         return self.__nome
     
     def verSenha (self):
@@ -34,7 +34,7 @@ class Cadastro:
     
     #DEF'S para Mudar as informações
     
-    def setUsuario(self, nome):
+    def setNome(self, nome):
         self.__nome = nome
     
     def setSenha (self, senha):
@@ -55,12 +55,19 @@ class Cadastro:
 
 class Cliente(Cadastro):
     
-    def __init__(self, nome, senha, email, cpf, rg, cep, saldo):
+    def __init__(self, nome, senha, email, cpf, rg, cep, saldo, poupanca):
         super().__init__(nome, senha, email, cpf, rg, cep)
         self.__saldo = saldo
+        self.__poupanca = 0
 
     def verSaldo(self):
         return self.__saldo
     
     def setSaldo(self, saldo):
         self.__saldo = saldo
+
+    def verPou(self):
+        return self.__poupanca
+    
+    def setPou(self, poupanca):
+        self.__poupanca = poupanca
