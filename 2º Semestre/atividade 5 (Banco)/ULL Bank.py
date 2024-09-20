@@ -45,7 +45,7 @@ while True:
                     os.system("cls")
 
         case 2:
-            cadastro = cadastro()
+            cadastros.append(cadastro())
 
         case 3:
             print("Saindo...")

@@ -1,4 +1,3 @@
 #Listas
 cadastros = []
-funcionarios = []
 cpfs = []

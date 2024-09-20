@@ -10,7 +10,7 @@ def menu():
         
         while True:
             try:
-                escolha = int(input("Qual opção deseja ? \n ---> "))
+                escolha = int(input("\n Qual opção deseja ? \n ---> "))
 
                 os.system("cls")
 
