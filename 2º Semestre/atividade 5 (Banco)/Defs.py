@@ -78,7 +78,7 @@ def login():
 
     print("\t \t ~~~ULL Bank~~~ \n")
 
-    print("Bem vindo ao Ull bank, para realizar o acesso a sua conta por favor nos informe suas informações de acesso: \n")
+    print("Bem vindo ao Ull bank, para realizar o acesso a sua conta por favor nos dê suas informações de acesso: \n")
 
     while True:
         try:
@@ -223,7 +223,71 @@ def pix(usuario):
             os.system("pause")
             os.system("cls")
 
+def poupança(usuario):
+    while True:
+        print("\t \t ~~~POUpança~~~ \n")
 
+        print(f"\t Usuario: {usuario.verUsuario()}")
+        print(f"\t Saldo: {usuario.verSaldo()} \n \n")
+        print(f"\t Na Poupança: {usuario.verPou()}")
+
+        while True:
+            try:
+                escolha = int(input("O que gostaria de fazer? \n 1 - Adicionar Saldo \n 2 - Sair \n ---> "))
+
+                os.system("cls")
+
+                break
+            
+            except Exception as e:
+                print(f" \t impossivel realizar operação, erro encontrado: {e}")
+
+        match escolha:
+
+            case 1:
+
+                grana = usuario.verSaldo()
+
+                if grana > 0:
+
+                    while True:
+                        try:
+                            depositar = float(input("Quanto gostaria de depositar na poupança? \n --> "))
+
+                            break
+                        
+                        except Exception as e:
+                            print(f" \t impossivel realizar operação, erro encontrado: {e}")
+
+                    Pou = usuario.verPou() + depositar
+                    dimdim = grana - depositar
+
+                    if dimdim < 0:
+                        print("Impossivel Aplicar, Valor não possuido na conta [POBRE HAHAHAHHAHAHAHA!!!]")
+
+                        os.system("pause")
+                        os.system("cls")
+
+                    else:
+                        usuario.setPou(Pou)
+
+                        print("Valor Aplicado Com Sucesso!")
+                        os.system("pause")
+                        os.system("cls")
+
+            case 2:
+                print("Saindo...")
+
+                os.system("pause")
+                os.system("cls")
+                break
+
+            case _:
+                print("Opção invalida...")
+
+                os.system("pause")
+                os.system("cls")
+                
 
 
 
