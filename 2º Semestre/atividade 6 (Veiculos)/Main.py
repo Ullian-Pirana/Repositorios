@@ -1,3 +1,10 @@
 import os
+from Defs import *
 
-print("~~~ Analilo Drive~~~")
+while True:
+    os.system("cls")
+    escolha = Menu()
+
+    match escolha:
+        case 1:
+            pass
