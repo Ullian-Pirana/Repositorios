@@ -42,7 +42,6 @@ while True:
                     else:
                         print("Nenhum cadastro realizado")
 
-                        os.system("pause")
                         os.system("cls")
 
                 case 2:
