@@ -1,0 +1,7 @@
+carros = []
+
+motos = []
+
+cliente = []
+
+funcionario = []
