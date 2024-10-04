@@ -1,74 +1,74 @@
-#Criação das funções
-import os
+import os      
 from Listas import *
 from Classes import *
 
-#Menu de escolhas, permitirá realizar escolhas.
+# Menu de escolhas
 def Menu():
     while True:
-        print("Seja bem vindo ao aluguel de carros Pipkabum")
-        print("1- Alugar um veículo \n 2- Cadastrar um cliente \n 3-Cadastrar carros \n 4-Sair")
+        print("Seja bem-vindo ao aluguel de carros Pipkabum")
+        print("1- Login Cliente \n2- Cadastrar um cliente \n3- Cadastrar carros \n4- Alugar Veículo \n5- Sair")
         try:
-            
-            escolha = int(input("--->")) #permite criar uma variável, onde só poderá informar somente de maneira númerica
-
-            os.system("pause")  # pausará o código
-            os.system("cls")    # limpará o código, permitindo que a pessoa possa realizar uma outra ação ou a mesma
-
-            break
-            #Ao informar uma resposta que não seja válida, aparecerá uma resposta informando "Valor inválido".
-        except Exception as e:
-            print("Valor inválido, erro {e}")
-    #Ao fazer uma ação, retornará para a posição do comando específico     
-    return escolha
+            escolha = int(input("---> "))  # Entrada numérica
+            os.system("pause")  # Pausa a execução
+            os.system("cls")    # Limpa a tela
+            return escolha  # Retorna a escolha
+        except ValueError:
+            print("Valor inválido. Por favor, insira um número.")
 
 
-#Funcao para cadastrar um  veiculo
-def cadastrar_veiculo():
-
-    print("\tCasdastro de Veiculos")
-
+# Função para cadastrar um veículo
+def cadastrar_carro():
+    print("\tCadastro de Carros")
     while True:
-        #envolver o código que pode gerar erros.
         try:
-            #variáveis = campos de preenchimento, permitindo colocar informações
             marca = input("Marca do Carro: ")
             modelo = input("Modelo do Carro: ")
             ano = int(input("Ano do Carro: "))
             placa = input("Placa do Carro: ")
-            # limpará o código, permitindo que a pessoa possa realizar uma outra ação ou a mesma
-            os.system("cls")
-
-            break
-        #Ao informar uma resposta que não seja válida, aparecerá uma resposta informando "Valor inválido".
-        except Exception as e:
-            print(f" \tNão foi possivel realizar o cadastro, erro encontrado: {e}")
+            diaria = None
             
-    if placa not in placas:
-        placas.append(placa)   # Se a placa não estiver na lista de placas, adicione-a.
- 
-        print("")
-        print("\tCadastro Realizado!")
-        cadastrado = Veiculo(marca,modelo, ano, placa)    # Cria um objeto Veiculo com os dados fornecidos.
-        
-        
-        os.system("cls")
-        
-        print("Veículo cadastrado !")
+            os.system("cls")  # Limpa a tela
+            if placa not in carros:
+                carros.append(placa)
+                print("\n\tCadastro Realizado!")
+                cadastrado = Veiculo(marca, modelo, ano, placa, diaria)
+                os.system("cls")
+                print("Veículo cadastrado!")
+                return cadastrado
+            else:
+                print("Veículo já cadastrado...")
+                os.system("pause")
+                os.system("cls")
+        except ValueError:
+            print("\tEntrada inválida. Tente novamente.")
 
-        return cadastrado   #Ao fazer uma ação, retornará para a posição do comando específico  
-        
-    else:
-        print("Veículo já Cadastrado...")
+def cadastrar_moto():
+    print("\tCadastro de Motos")
+    while True:
+        try:
+            marca = input("Marca da Moto: ")
+            modelo = input("Modelo da Moto: ")
+            ano = int (input("Ano da Moto: "))
+            placa = input("Placa da Moto: ")
+            diaria = None
 
-        os.system("pause")
-        os.system("cls")  # limpará o código, permitindo que a pessoa possa realizar uma outra ação ou a mesma
+            os.system("cls")  # Limpa a tela
+            if placa not in motos:
+                motos.append(placa)
+                print("\n\tCadastro Realizado!")
+                cadastrado = Veiculo(marca, modelo, ano, placa, diaria)  # Cria um objeto Veiculo
+                os.system("cls")
+                print("Veículo cadastrado!")
+                return cadastrado
+            else:
+                print("Veículo já cadastrado...")
+                os.system("pause")
+                os.system("cls")
+        except ValueError:
+            print("\tEntrada inválida. Tente novamente.")
 
-    
-
-#Funcao para cadastro de um usuario 
+# Função para cadastro de um usuário 
 def cadastrar_user():
-    #Entra em um loop
     while True:
         try:
             nome = input("Nome Completo: ")
@@ -77,84 +77,86 @@ def cadastrar_user():
             email = input("E-Mail: ")
             cep = input("CEP: ")
             senha = input("Senha: ")
-
             os.system("cls")
-            break 
-    
+            
+            if cpf in cpfs:  # Verifica se o CPF já está na lista
+                print("CPF já cadastrado.")
+                continue  # Volta ao início do loop se o CPF já estiver cadastrado
+            
+            cpfs.append(cpf)  # Adiciona o CPF
+            cadastrado = Cliente(nome, senha, email, cpf, rg, cep)  # Cria um objeto Cliente
+            print("\tCadastro realizado com sucesso!")
+            return cadastrado  # Retorna o novo cliente cadastrado
+        
         except Exception as e:
-            print (f"Valor errado. (Type error {e})")
-            
-            if cpf not in cpfs: # vai verificar se a variavel cpf esta na lista
-                cpfs.append(cpf) #Se a condicao for verdadeira o cpf sera adicionado a lista de cpfs
-                                 # A condicao vai ser 
-            cadastrado = Cliente(nome, senha, email, cpf, rg, cep,)
-            
-        return cadastrado
+            print(f"Erro: {e}. Tente novamente.")
+        
+        break
 
+            
 
 def alugar_veiculos():
-
     while True:
-        
-        print("\tAlugar Veiculos")
-        print("Qual veiculo deseja alugar?\n")
-        print("1- Carro \n 2- Moto \n 3-Sair")
+        print("\tAlugar Veículos")
+        print("Qual veículo deseja alugar?\n")
+        print("1- Carro \n2- Moto \n3- Sair")
         
         try:
-
-            escolha= int(input("Qual opção deseja?\n-->"))
-            
+            escolha = int(input("Qual opção deseja?\n--> "))
             match escolha:
-
                 case 1:
-                    print("--- CARRO ---")
-                        
-                    
-                    
-                
+                    print("--- CARRO ---\n")
+                    print("Carros disponíveis:")
+                    for carro in carros:
+                        print(carro)  # Exibe os carros disponíveis
+
+                    sel_placa = input("Escreva a placa do veículo que deseja:\n---> ")
+                    for carro in carros:
+                        if sel_placa == carro.getPlaca():
+                            print(f"Carro alugado\t --Identificação: {carro}")
+                            return carro
+
                 case 2:
-                    print("--- MOTO ---")
-                        
+                    print("--- MOTO ---\n")
+                    print("Motos disponíveis:")
+                    for moto in motos:
+                        print(moto)  # Exibe as motos disponíveis
+
+                    sel_placa = input("Escreva a placa do veículo que deseja:\n---> ")
+                    for moto in motos:
+                        if sel_placa == moto.getPlaca():
+                            print(f"Moto alugada\t --Identificação: {moto}")
+                            return moto
+
                 case 3:
-                    os.system("cls")
+                    print("Saindo do aluguel de veículos.")
                     break
-                    
-                        
-                
-            
 
-            
-            
-
-            os.system("cls")
-
-            break
-
+                case _:
+                    print("Opção inválida. Tente novamente.")
+        
         except Exception as e:
-            print(f" \tNão foi possivel realizar o cadastro, erro encontrado: {e}")
+            print(f"\tImpossível realizar acesso, erro encontrado: {e}")
+            os.system("pause")
+            os.system("cls")                   
 
 def login():
     while True:
         try:
-            acesso = input("\t CPF: ")
-            senha = input("\t Senha: ")
+            print("--- Login ---")
+            acesso = input("\tCPF: ")
+            senha = input("\tSenha: ")
             os.system("cls")
-            break
-        except Exception as e:
-            print(f" \t impossivel realizar acesso, erro encontrado: {e}")
-
-            os.system("pause")
-            os.system("cls")
-
-    for userr in cliente:
-        if acesso == userr.verCpf() and senha == userr.verSenha():
-                
-                print(f"\t Bem Vindo {userr.verUsuario()}")
-                
-                return userr
-        else:
+            for userr in cliente:  # Supondo que a lista de clientes seja chamada 'clientes'
+                if acesso == userr.getCpf() and senha == userr.getSenha():
+                    print(f"\tBem-vindo {userr.getNome()}")
+                    return userr
+            
             print("Nenhum cadastro encontrado!")
-
             os.system("pause")
             os.system("cls")
-        
+
+        except Exception as e:
+            print(f"\tImpossível realizar acesso, erro encontrado: {e}")
+            os.system("pause")
+            os.system("cls")

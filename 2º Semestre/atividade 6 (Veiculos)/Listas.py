@@ -12,9 +12,8 @@ cliente = []
 #Todas as informações sobre os funcionários, seram armazenadas nessa lista
 funcionario = []
 
-#Todas as informações sobre placas dos veículos, seram armazenadas nessa lista
-placas = []
-
+#Todas as informações sobre cpfs, seram armazenadas nessa lista
 cpfs = []
 
+#Todas as informações sobre os veículos, seram armazenadas nessa lista
 veículo = []

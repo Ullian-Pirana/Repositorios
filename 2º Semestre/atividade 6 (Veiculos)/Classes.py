@@ -28,7 +28,7 @@ class Veiculo: #Classe veículo
     def setPlaca(self, placa):  #Modificar os valores
         self.__placa = placa
 
-    def setDiaria(self, diaria): #Modificação
+    def setDiaria(self, diaria): 
         self.__diaria = diaria
 
     #Ações do veículo
@@ -88,7 +88,7 @@ class Usuario(Veiculo):
     def getTel(self):
         return self.__telefone
     
-    def setCep(self, cep):
+    def setCep(self, cep):  #Modifica os valores
         self.__cep = cep
     
     def setEmail(self, email):
@@ -127,7 +127,7 @@ class Cliente(Usuario):
     def getTel(self):
         return self.__telefone
         
-    def setNome(self, nome):  #Modificar os valores
+    def setNome(self, nome):  #Modifica os valores
         self.__nome = nome
 
     def setRg(self, rg):
