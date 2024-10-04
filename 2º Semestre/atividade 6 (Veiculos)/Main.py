@@ -7,4 +7,5 @@ while True:
 
     match escolha:
         case 1:
-            pass
+            pass 
+        
