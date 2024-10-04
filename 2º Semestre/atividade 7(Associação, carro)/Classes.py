@@ -36,9 +36,9 @@ class Rodas:
 
 class Carro:
 
-    def __init__(self, motor, rodas):
-        self.__motor = motor
-        self.__rodas = rodas
+    def __init__(self):
+        self.__motor = None
+        self.__rodas = None
 
     def getMotor(self):
         return self.__motor
