@@ -10,7 +10,7 @@ class Veiculo: #Classe veículo
         self.__ano = ano
         self.__diaria = diaria
 
-    def getPlaca(self):      #Puxar um valor
+    def getPlaca(self):      #Retornar um valor
         return self.__placa  
     
     def getMarca(self):
@@ -28,7 +28,7 @@ class Veiculo: #Classe veículo
     def setPlaca(self, placa):  #Modificar os valores
         self.__placa = placa
 
-    def setDiaria(self, diaria): #Modificar 
+    def setDiaria(self, diaria): #Modificação
         self.__diaria = diaria
 
     #Ações do veículo
@@ -41,25 +41,26 @@ class Veiculo: #Classe veículo
     def desligar(self):
         print("PLOP")
 
-
-class Carro(Veiculo):   #Classe que herda da classe pai "Veiculo"
+#Classe que herda da classe pai "Veiculo"
+class Carro(Veiculo):   
     def __init__(self, placa, marca, modelo, ano, diaria):
         super().__init__(placa, marca, modelo, ano, diaria)
 
     def cantar_pneu(self):  #Ação do carro
         print("cantando pneu")
 
-
-class moto(Veiculo): #Classe que herda da classe pai "Veiculo"
+#Classe que herda da classe pai "Veiculo"
+class moto(Veiculo): 
     def __init__(self, placa, marca, modelo, ano, diaria):
         super().__init__(placa, marca, modelo, ano, diaria)
 
     def dar_grau(self):  #Ação da moto
         print("randandandan")
         
+#Herda da classe "Veiculo"
+class Usuario(Veiculo): 
 
-class Usuario(Veiculo): #Herda da classe "Veiculo"
-
+    #Informações de usuário
     def __init__(self, nome, rg, cpf, cep, email, telefone):
         self.__nome = nome
         self.__rg = rg
@@ -69,7 +70,7 @@ class Usuario(Veiculo): #Herda da classe "Veiculo"
         self.__telefone = telefone
 
 
-    def getNome(self):
+    def getNome(self):         #Retornar um valor
         return self.__nome
         
     def getRg(self):
@@ -95,10 +96,11 @@ class Usuario(Veiculo): #Herda da classe "Veiculo"
     
     def setTel(self, telefone):
         self.__telefone = telefone
-    
-class Cliente(Usuario):
+
+#Herda da classe "usuario"
+class Cliente(Usuario): 
     def __init__(self, nome, rg, cpf, cep, email, telefone):
-        super().__init__(self, nome, rg, cpf, cep, email, telefone)
+        super().__init__(self, nome, rg, cpf, cep, email, telefone) 
         self.__nome = nome
         self.__rg = rg
         self.__cpf = cpf
@@ -107,7 +109,7 @@ class Cliente(Usuario):
         self.__telefone = telefone
 
             
-    def getNome(self):
+    def getNome(self):       #Retornar um valor
         return self.__nome
         
     def getRg(self):
@@ -125,7 +127,7 @@ class Cliente(Usuario):
     def getTel(self):
         return self.__telefone
         
-    def setNome(self, nome):
+    def setNome(self, nome):  #Modificar os valores
         self.__nome = nome
 
     def setRg(self, rg):
@@ -142,5 +144,7 @@ class Cliente(Usuario):
     
     def setTel(self, telefone):
         self.__telefone = telefone
+
+        
         
 
