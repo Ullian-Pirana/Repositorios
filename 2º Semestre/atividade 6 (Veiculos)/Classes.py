@@ -54,10 +54,11 @@ class moto(Veiculo): #Classe que herda da classe pai "Veiculo"
     def __init__(self, placa, marca, modelo, ano, diaria):
         super().__init__(placa, marca, modelo, ano, diaria)
 
-    def dar_grau(self):  #
+    def dar_grau(self):  #Ação da moto
         print("randandandan")
         
-class Usuario(Veiculo):
+
+class Usuario(Veiculo): #Herda da classe "Veiculo"
 
     def __init__(self, nome, rg, cpf, cep, email, telefone):
         self.__nome = nome
