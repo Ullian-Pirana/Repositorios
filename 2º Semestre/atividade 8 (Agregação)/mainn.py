@@ -23,3 +23,4 @@ posicao = 1
 for prod in Carlos.getCarrinho():
     print(f"  {posicao}º: \n produto: {prod.getNome()} \n valor: {prod.getValor()} \n")
     posicao += 1
+    
