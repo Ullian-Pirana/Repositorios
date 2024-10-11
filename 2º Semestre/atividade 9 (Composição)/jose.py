@@ -1,5 +1,5 @@
 class Cadastro:
-    def init(self, nome, cpf):
+    def __init__(self, nome, cpf):
         self.nome = nome
         self.cpf = cpf
         self.end = None
@@ -14,14 +14,14 @@ class Cadastro:
         return self.end.getRua()
 
 class Endereco:
-    def init(self, cep, num, rua, bairro, cidade):
+    def __init__(self, cep, num, rua, bairro, cidade):
         self.cep = cep
         self.num = num
         self.rua = rua
         self.bairro = bairro
         self.cidade = cidade 
 
-    def str(self):
+    def __str__(self):
         return self.cep
 
     def getRua(self):
@@ -31,6 +31,6 @@ class Endereco:
 jose = Cadastro("José","12312312312")
 jose.setEndereco("02407320", "10","R.Senai","Tamoio", "Várzea")
 
-print(jose.getEndereco())
-print(jose.getEndereco().getRua())
-print(jose.getRua())
+print(f"Cep: {jose.getEndereco()}")
+print(f"Rua: {jose.getEndereco().getRua()}")
+print(f"Rua02: {jose.getRua()}")
