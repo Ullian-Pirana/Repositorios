@@ -83,7 +83,7 @@ class Endereco:
     def getCep (self):
         return self.__cep       
 
-class conta:
+class Conta:
 
     def __init__(self, saldo, poupanca):
         self.__saldo = saldo
@@ -107,7 +107,5 @@ class conta:
     
     def setContatos(self, contato):
         self.__contatos.append(contato)
-
-
 
 
