@@ -27,6 +27,11 @@ class Poupança(Conta):
     def tipo(self):
         self._Conta__tipo = "Conta Poupança"
 
+try:
+    conta = Conta()
+except Exception as e:
+    print(e)
+
 pou = Poupança()
 pou.tipo()  
 corrente = Corrente()
