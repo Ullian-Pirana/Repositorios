@@ -26,7 +26,7 @@ class Poupança(Conta):
 class Cliente:
     def __init__(self, nome: str):
         self.nome = nome
-        self.contas = []  # Lista de contas (Agregação)
+        self.contas = []  # Lista de contas
 
     def adicionarConta(self, conta: Conta):
         self.contas.append(conta)
