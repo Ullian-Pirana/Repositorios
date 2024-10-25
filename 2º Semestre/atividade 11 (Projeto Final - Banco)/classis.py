@@ -51,7 +51,7 @@ class Cliente:
     def __init__(self,nome: str,cpf: str):
         self.__nome = nome
         self.__cpf = cpf
-        self.__contas = []
+        self.__contas = [Conta]
 
     def addConta(self, conta: Conta):
         self.__contas.append(conta)
@@ -74,7 +74,17 @@ class Extrato:
     def consultar_extratos(self):
         return self.__trasacoes 
 
+class Banco:
+    def __init__(self):
+        self.__clientes = [Cliente]
 
+    def add_cliente(self, cliente: Cliente):
+        self.__clientes.append(cliente)
 
+    def rmv_cliente(self, cliente: Cliente):
+        if cliente in self.__clientes:
+            self.__clientes.remove(cliente)
 
-
+        else:
+            print("Cliente não encontrada...")
+        
