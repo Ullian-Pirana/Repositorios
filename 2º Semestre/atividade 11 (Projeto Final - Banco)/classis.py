@@ -62,5 +62,19 @@ class Cliente:
         else:
             print("Conta não encontrada...")
 
+class Extrato:
+    def __init__(self):
+        self.__trasacoes = []
 
-            
+    def add_transacao(self,descricao: str,valor: float):
+        transacao = f"Descrição: {descricao} \n Valor: {valor}"
+
+        self.__trasacoes.append(transacao)
+
+    def consultar_extratos(self):
+        return self.__trasacoes 
+
+
+
+
+
