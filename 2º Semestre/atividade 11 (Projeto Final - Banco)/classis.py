@@ -30,9 +30,13 @@ class Conta(ABC):
 class ContaCorrente(Conta):
     def __init__(self):
         super().__init__()
+        self.__tipo = "Conta Corrente"
 
     def __str__(self):
-        return "Conta Corrente"
+        return self.__tipo
+    
+    def getTipo(self):
+        return self.__tipo
 
     def sacar (self, valor: float):
         saque = self.__saldo - valor
@@ -47,9 +51,13 @@ class ContaCorrente(Conta):
 class ContaPoupanca(Conta):
     def __init__(self, saldo: float):
         super().__init__(saldo)
+        self.__tipo = "Conta Poupança"
 
     def __str__(self):
-        return "Conta Poupança"
+        return self.__tipo
+    
+    def getTipo(self):
+        return self.__tipo
 
     def sacar (self, valor: float):
         saque = self.__saldo - valor
