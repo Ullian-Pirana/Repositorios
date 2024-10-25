@@ -1,8 +1,8 @@
 from abc import *
 
 class Conta(ABC):
-    def __init__(self, saldo: float):
-        self.__saldo = saldo
+    def __init__(self):
+        self.__saldo = 0.00
 
     @abstractmethod
     def depositar(self, valor : float):
@@ -19,8 +19,8 @@ class Conta(ABC):
         return self.__saldo
     
 class ContaCorrente(Conta):
-    def __init__(self, saldo: float):
-        super().__init__(saldo)
+    def __init__(self):
+        super().__init__()
 
     def sacar (self, valor: float):
         saque = self.__saldo - valor
@@ -46,3 +46,21 @@ class ContaPoupanca(Conta):
                 print("Saldo insuficiente...")
         else:
             print("Requisitos de saque não atendidos...")
+
+class Cliente:
+    def __init__(self,nome: str,cpf: str):
+        self.__nome = nome
+        self.__cpf = cpf
+        self.__contas = []
+
+    def addConta(self, conta: Conta):
+        self.__contas.append(conta)
+
+    def rmvConta(self, conta: Conta):
+        if conta in self.__contas:
+            self.__contas.remove(conta)
+        else:
+            print("Conta não encontrada...")
+
+
+            
