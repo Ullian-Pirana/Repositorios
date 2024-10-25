@@ -3,20 +3,29 @@ from abc import *
 class Conta(ABC):
     def __init__(self):
         self.__saldo = 0.00
+        self.__extrato = Extrato()
 
     @abstractmethod
-    def depositar(self, valor : float):
-        self.__saldo += valor
+    def depositar(self, valor: float):
+        if valor > 0:
+            self.__saldo += valor
+            self.__extrato.add_transacao("Depósito", valor)
     
     def sacar(self, valor : float):
         self.__saldo -= valor
 
     def transferir(self, conta_destino, valor: float):
-        conta_destino += valor
-        self.__saldo -= valor
+        if valor > 0 and valor <= self.__saldo:
+            self.sacar(valor)
+            self.__extrato.add_transacao(f"Transferência para {conta_destino} no valor de R${valor}")
+        else:
+            print("Valor inválido para transferência.")
 
     def consultar_saldo (self):
         return self.__saldo
+    
+    def consultar_extrato(self):
+        return self.__extrato.consultar_extratos()
     
 class ContaCorrente(Conta):
     def __init__(self):
@@ -25,8 +34,9 @@ class ContaCorrente(Conta):
     def sacar (self, valor: float):
         saque = self.__saldo - valor
 
-        if saque > 0.00:
+        if saque > 0.00 and self.__saldo > saque:
             self.__saldo = saque
+            self.__extrato.add_transacao("saque realizado na conta corrente", valor)
 
         else:
             print("Saldo insuficiente...")
@@ -41,6 +51,7 @@ class ContaPoupanca(Conta):
         if self.__saldo > 100.00:
             if saque > 0.00:
                 self.__saldo = saque
+                self.__extrato.add_transacao("saque realizado na conta poupança", valor)
 
             else:
                 print("Saldo insuficiente...")
@@ -51,7 +62,7 @@ class Cliente:
     def __init__(self,nome: str,cpf: str):
         self.__nome = nome
         self.__cpf = cpf
-        self.__contas = [Conta]
+        self.__contas = []
 
     def addConta(self, conta: Conta):
         self.__contas.append(conta)
@@ -67,7 +78,7 @@ class Extrato:
         self.__trasacoes = []
 
     def add_transacao(self,descricao: str,valor: float):
-        transacao = f"Descrição: {descricao} \n Valor: {valor}"
+        transacao = f"Descrição: {descricao} \n Valor: R${valor:.2f}"
 
         self.__trasacoes.append(transacao)
 
@@ -76,7 +87,7 @@ class Extrato:
 
 class Banco:
     def __init__(self):
-        self.__clientes = [Cliente]
+        self.__clientes = []
 
     def add_cliente(self, cliente: Cliente):
         self.__clientes.append(cliente)
@@ -87,4 +98,3 @@ class Banco:
 
         else:
             print("Cliente não encontrada...")
-        
