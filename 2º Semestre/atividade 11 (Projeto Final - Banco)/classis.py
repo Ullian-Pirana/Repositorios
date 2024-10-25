@@ -31,6 +31,9 @@ class ContaCorrente(Conta):
     def __init__(self):
         super().__init__()
 
+    def __str__(self):
+        return "Conta Corrente"
+
     def sacar (self, valor: float):
         saque = self.__saldo - valor
 
@@ -44,6 +47,9 @@ class ContaCorrente(Conta):
 class ContaPoupanca(Conta):
     def __init__(self, saldo: float):
         super().__init__(saldo)
+
+    def __str__(self):
+        return "Conta Poupança"
 
     def sacar (self, valor: float):
         saque = self.__saldo - valor
@@ -63,6 +69,9 @@ class Cliente:
         self.__nome = nome
         self.__cpf = cpf
         self.__contas = []
+
+    def __str__(self):
+        return self.__nome
 
     def addConta(self, conta: Conta):
         self.__contas.append(conta)
@@ -88,6 +97,9 @@ class Extrato:
 class Banco:
     def __init__(self):
         self.__clientes = []
+
+    def __str__(self):
+        return "Ull Bank"
 
     def add_cliente(self, cliente: Cliente):
         self.__clientes.append(cliente)
