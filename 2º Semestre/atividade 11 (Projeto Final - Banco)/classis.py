@@ -34,7 +34,7 @@ class ContaCorrente(Conta):
     def sacar (self, valor: float):
         saque = self.__saldo - valor
 
-        if saque > 0.00 and self.__saldo > saque:
+        if valor > 0.00 and saque > 0.00:
             self.__saldo = saque
             self.__extrato.add_transacao("saque realizado na conta corrente", valor)
 
@@ -48,7 +48,7 @@ class ContaPoupanca(Conta):
     def sacar (self, valor: float):
         saque = self.__saldo - valor
 
-        if self.__saldo > 100.00:
+        if valor > 0.00 and self.__saldo > 100.00:
             if saque > 0.00:
                 self.__saldo = saque
                 self.__extrato.add_transacao("saque realizado na conta poupança", valor)
