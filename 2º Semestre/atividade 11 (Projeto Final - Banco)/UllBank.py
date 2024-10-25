@@ -9,7 +9,7 @@ while True:
 
         match escolha: 
                 case 1:
-                    login(Ull)
+                    usario = login(Ull)
                 
                 case 2:
-                      cadastro(Ull)
+                    cadastro(Ull)
