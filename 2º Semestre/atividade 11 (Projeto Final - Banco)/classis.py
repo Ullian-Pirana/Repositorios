@@ -38,7 +38,7 @@ class ContaCorrente(Conta):
     def getTipo(self):
         return self.__tipo
 
-    def sacar (self, valor: float):
+    def sacar(self, valor: float):
         saque = self.__saldo - valor
 
         if valor > 0.00 and saque > 0.00:
@@ -95,6 +95,9 @@ class Cliente:
             self.__contas.remove(conta)
         else:
             print("Conta não encontrada...")
+
+    def getContas(self):
+        return self.__contas
 
 class Extrato:
     def __init__(self):

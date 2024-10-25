@@ -135,6 +135,92 @@ def tela_banco(user):
             
     return conta
 
+def conta_corrente(user):
+    conta = "Conta Corrente"
+
+    while True:
+        print("Conta Corrente")
+
+        if conta not in user.getContas():
+            while True:
+                print("Conta Corrente não foi Aberta ainda, gostaria de Abrir uma? \n 1- Sim \n 2- Não")
+
+                try:
+                    abrir = int(input("--> "))
+
+                    os.system("pause")
+                    os.system("cls")
+                    break
+
+                except Exception as e:                      
+                    print(f"Impossivel concluir operação \n erro encontrado: {e}")
+
+                    os.system("pause")
+                    os.system("cls")
+
+            while True:
+                match abrir:
+                    case 1:
+                        contaC = ContaCorrente() 
+
+                        print("Conta Corrente Aberta com sucesso!")
+
+                        os.system("pause")
+                        os.system("cls")
+                        break
+                    
+                    case 2:
+                        print("Saindo...")
+                        os.system("pause")
+                        os.system("cls")
+                        break
+
+                    case _:
+                        print("Opção Invalida...")
+                        os.system("pause")
+                        os.system("cls")
+
+        else:
+            for contas in user.getContas():
+                if conta == contas.getTipo():
+                    conta_usar = contas
+
+            print(f"Saldo: {conta_usar.consultar_saldo()} \n")
+            print("O que gostaria de fazer?\n 1- Sacar \n 2- Depositar \n 3- Pix \n 4- sair")
+
+            while True:
+                try:
+                    usar_conta = int(input("--> "))
+
+                    break
+
+                except Exception as e:                      
+                    print(f"Impossivel concluir operação \n erro encontrado: {e}")
+
+                    os.system("pause")
+                    os.system("cls")
+            
+            match usar_conta:
+                case 1:
+                    while True:
+                        try:
+                            sacar = float(input("Valor do saque: "))
+                            break
+
+                        except Exception as e:                      
+                            print(f"Impossivel concluir operação \n erro encontrado: {e}")
+
+                            os.system("pause")
+                            os.system("cls")
+                            
+                    conta_usar.sacar(sacar)
+
+
+def conta_poupanca(user):
+    conta = "Conta Poupança"
+
+    while True:
+        pass
 
 
 
