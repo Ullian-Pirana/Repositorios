@@ -73,6 +73,12 @@ class Cliente:
     def __str__(self):
         return self.__nome
 
+    def getNome(self):
+        return self.__nome
+    
+    def getCpf(self):
+        return self.__cpf
+
     def addConta(self, conta: Conta):
         self.__contas.append(conta)
 
@@ -110,3 +116,6 @@ class Banco:
 
         else:
             print("Cliente não encontrada...")
+
+    def getClientes(self):
+        return self.__clientes
