@@ -17,3 +17,18 @@ class Conta(ABC):
 
     def consultar_saldo (self):
         return self.__saldo
+    
+class ContaCorrente(Conta):
+    def __init__(self, saldo: float):
+        super().__init__(saldo)
+
+    def sacar (self, valor: float):
+        saque = self.__saldo - valor
+
+        if saque > 0.00:
+            self.__saldo = saque
+
+        else:
+            print("Saldo insuficiente...")
+            
+    
