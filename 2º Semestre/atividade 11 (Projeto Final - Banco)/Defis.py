@@ -97,18 +97,18 @@ def login(banco):
                 if nome == cliente.getNome() and cpf == cliente.getCpf():
                     cliente_encontrado = cliente
 
-                    print(f"Login bem-sucedido! Bem-vindo, {cliente_encontrado.getNome()}!")
+                    print(f"Login bem-sucedido!\n Bem-vindo, {cliente_encontrado.getNome()}!")
                     os.system("pause")
                     os.system("cls")
 
                     return cliente_encontrado
 
-                    break
-
                 else:
                     print("Nome ou CPF inválidos. Tente novamente.")
                     os.system("pause")
                     os.system("cls")
+            
+            break
 
         except Exception as e:
             print(f"Impossível concluir a operação \n erro encontrado: {e}")
@@ -116,6 +116,24 @@ def login(banco):
             os.system("pause")
             os.system("cls")
 
+def tela_banco(user):
+    while True:
+        print("\t Ull Bank \n")
+        print(f"Usuario: {user.getNome()} \n")
+        print("Qual Conta gostaria de Utilizar?\n 1- Corrente\n 2- Poupança\n 3- Sair")
+
+        try:
+            conta = int(input("--> "))
+
+            break
+            
+        except Exception as e:
+            print(f"Impossível concluir a operação \n erro encontrado: {e}")
+            
+            os.system("pause")
+            os.system("cls")
+            
+    return conta
 
 
 
