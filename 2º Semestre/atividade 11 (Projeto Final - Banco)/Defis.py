@@ -215,7 +215,6 @@ def conta_corrente(user):
                             
                     conta_usar.sacar(sacar)
 
-
 def conta_poupanca(user):
     conta = "Conta Poupança"
 
