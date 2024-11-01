@@ -8,7 +8,8 @@ class Conta(ABC):
     @abstractmethod
     def depositar(self, valor: float):
         if valor > 0:
-            self.__saldo += valor
+            depositado = self.__saldo + valor
+            self.__saldo = depositado
             self.__extrato.add_transacao("Depósito", valor)
     
     def sacar(self, valor : float):
@@ -17,9 +18,12 @@ class Conta(ABC):
     def transferir(self, conta_destino, valor: float):
         if valor > 0 and valor <= self.__saldo:
             self.sacar(valor)
-            self.__extrato.add_transacao(f"Transferência para {conta_destino} no valor de R${valor}")
+            conta_destino.depositar(valor)
+            self.__extrato.add_transacao(f"PIX para {conta_destino.getTipo()} no valor de R${valor:.2f}")
+            conta_destino.consultar_extrato().add_transacao(f"PIX recebido de {self.getTipo()} no valor de R${valor:.2f}")
+            print(f"Transferência PIX de R${valor:.2f} realizada com sucesso para {conta_destino.getTipo()}.")
         else:
-            print("Valor inválido para transferência.")
+            print("Valor inválido para transferência PIX.")
 
     def consultar_saldo (self):
         return self.__saldo
