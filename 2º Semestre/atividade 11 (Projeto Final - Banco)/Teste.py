@@ -1,9 +1,10 @@
 from classis import *
 import os
 
-esca = int(input("asfjasn: "))
-
 while True:
+
+    esca = int(input("asfjasn: "))
+    
     if esca == 1:
         contaC =ContaCorrente()
         os.system("pause")
