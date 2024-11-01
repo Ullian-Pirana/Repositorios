@@ -226,70 +226,70 @@ def conta_corrente(user):
                     os.system("pause")
                     os.system("cls")
             
-        match usar_conta:
-            case 1:
-                while True:
-                    try:
-                        sacar = float(input("Valor do saque: "))
-                        break
+            match usar_conta:
+                case 1:
+                    while True:
+                        try:
+                            sacar = float(input("Valor do saque: "))
+                            break
 
-                    except Exception as e:                      
-                        print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                        except Exception as e:                      
+                            print(f"Impossivel concluir operação \n erro encontrado: {e}")
 
-                        os.system("pause")
-                        os.system("cls")
-                        
-                conta_usar.sacar(sacar)
-                print(f"Saque realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
-                os.system("pause")
-                os.system("cls")
+                            os.system("pause")
+                            os.system("cls")
+                            
+                    conta_usar.sacar(sacar)
+                    print(f"Saque realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
+                    os.system("pause")
+                    os.system("cls")
 
-            case 2:
-                while True:
-                    try:
-                        deposito = float(input("Valor do deposito: "))
-                        break
+                case 2:
+                    while True:
+                        try:
+                            deposito = float(input("Valor do deposito: "))
+                            break
 
-                    except Exception as e:                      
-                        print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                        except Exception as e:                      
+                            print(f"Impossivel concluir operação \n erro encontrado: {e}")
 
-                        os.system("pause")
-                        os.system("cls")
-                        
-                conta_usar.depositar(deposito)
-                print(f"Deposito realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
-                os.system("pause")
-                os.system("cls")
+                            os.system("pause")
+                            os.system("cls")
+                            
+                    conta_usar.depositar(deposito)
+                    print(f"Deposito realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
+                    os.system("pause")
+                    os.system("cls")
 
-            case 3:
-                print("Realizar transferência PIX...")
-    
-                conta_destino_nome = input("Informe o tipo da conta destino (Corrente ou Poupança): ")
-                valor_pix = float(input("Informe o valor a ser transferido: "))
-                
-                conta_destino = None
-                for conta in user.getContas():
-                    if conta.getTipo() == conta_destino_nome:
-                        conta_destino = conta
-                        break
+                case 3:
+                    print("Realizar transferência PIX...")
 
-                if conta_destino:
-                    conta_usar.pix(conta_destino, valor_pix)
-                else:
-                    print("Conta destino não encontrada.")
+                    conta_destino_nome = input("Informe o tipo da conta destino (Corrente ou Poupança): ")
+                    valor_pix = float(input("Informe o valor a ser transferido: "))
+                    
+                    conta_destino = None
+                    for conta in user.getContas():
+                        if conta.getTipo() == conta_destino_nome:
+                            conta_destino = conta
+                            break
 
-            case 4:
-                print("Saindo da Conta Corrente...")
+                    if conta_destino:
+                        conta_usar.pix(conta_destino, valor_pix)
+                    else:
+                        print("Conta destino não encontrada.")
 
-                os.system("pause")
-                os.system("cls")
-                break
+                case 4:
+                    print("Saindo da Conta Corrente...")
 
-            case _:
-                print("opção invalida, tente novamente...")
+                    os.system("pause")
+                    os.system("cls")
+                    break
 
-                os.system("pause")
-                os.system("cls")
+                case _:
+                    print("opção invalida, tente novamente...")
+
+                    os.system("pause")
+                    os.system("cls")
 
 def conta_poupanca(user):
     conta = "Conta Poupança"
