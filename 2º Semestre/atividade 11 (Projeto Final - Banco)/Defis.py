@@ -47,40 +47,65 @@ def excluir(banco):
     while True:
         print("\t Excluir Conta \n")
 
-        if len(banco.getClientes()) > 0:
-            print("Para realizar a exclusão da sua conta precisamos que nos de \n as seguintes informações: ")
+        try:
+            fazer_exclusão = int(input("O que gostaria de fazer? \n 1 - Excluir uma conta \n 2 - sair \n --> "))
 
-            try:
-                nome = input("Seu Nome: ")
-                cpf = input("Seu Cpf: ")
-
-                for cliente in banco.getClientes():
-                    if nome == cliente.getNome() and cpf == cliente.getCpf():
-                        banco.rmv_cliente(cliente)
-
-                        print("Exclusão realizada com êxito!")
-
-                        os.system("pause")
-                        os.system("cls")
-                        break 
-
-                    else:
-                        print("Nenhum cliente encontrado com essas informações...")
-                        os.system("pause")
-                        os.system("cls")
-
-            except Exception as e:                      
+        except Exception as e:                      
                 print(f"Impossivel concluir operação \n erro encontrado: {e}")
 
                 os.system("pause")
                 os.system("cls")
 
-        else:
-            print("Nenhum Cadastro encontrado...")
-            os.system("pause")
-            os.system("cls")
+        match fazer_exclusão:
 
-            break
+            case 1:
+
+                if len(banco.getClientes()) > 0:
+                    print("Para realizar a exclusão da sua conta precisamos que nos de \n as seguintes informações: ")
+
+                    try:
+                        nome = input("Seu Nome: ")
+                        cpf = input("Seu Cpf: ")
+
+                        for cliente in banco.getClientes():
+                            if nome == cliente.getNome() and cpf == cliente.getCpf():
+                                banco.rmv_cliente(cliente)
+
+                                print("Exclusão realizada com êxito!")
+
+                                os.system("pause")
+                                os.system("cls")
+
+                            else:
+                                print("Nenhum cliente encontrado com essas informações...")
+                                os.system("pause")
+                                os.system("cls")
+
+                    except Exception as e:                      
+                        print(f"Impossivel concluir operação \n erro encontrado: {e}")
+
+                        os.system("pause")
+                        os.system("cls")
+
+                else:
+                    print("Nenhum Cadastro encontrado...")
+                    os.system("pause")
+                    os.system("cls")
+
+                    break
+            
+            case 2:
+                print("Saindo...")
+
+                os.system("pause")
+                os.system("cls")
+                break
+            
+            case _:
+                print("Opção invalida, tente novamente...")
+
+                os.system("pause")
+                os.system("cls")
 
 def login(banco):
     while True:
