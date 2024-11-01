@@ -1,11 +1,11 @@
 from abc import *
 
 class Conta(ABC):
+    @abstractmethod
     def __init__(self):
         self.__saldo = 0.00
         self.__extrato = Extrato()
 
-    @abstractmethod
     def depositar(self, valor: float):
         if valor > 0:
             depositado = self.__saldo + valor

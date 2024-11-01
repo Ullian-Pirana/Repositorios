@@ -4,7 +4,7 @@ import os
 while True:
 
     esca = int(input("asfjasn: "))
-    
+
     if esca == 1:
         contaC =ContaCorrente()
         os.system("pause")
@@ -26,4 +26,4 @@ while True:
         os.system("cls")
         break
     else:
-        print("Pantene queima rosca")
+        print("ERRO 404")
