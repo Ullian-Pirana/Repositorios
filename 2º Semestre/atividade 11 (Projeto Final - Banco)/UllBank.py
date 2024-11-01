@@ -27,6 +27,5 @@ while True:
                                     print("opção invalida...")
                                     os.system("pause")
                                     os.system("cls")
-                
                 case 2:
                     cadastro(Ull)
