@@ -43,7 +43,7 @@ class ContaCorrente(Conta):
 
         if valor > 0.00 and saque > 0.00:
             self.__saldo = saque
-            self.__extrato.add_transacao("saque realizado na conta corrente", valor)
+            self.__extrato.add_transacao("saque realizado na conta corrente, no valor de R$:", valor)
 
         else:
             print("Saldo insuficiente...")
@@ -65,7 +65,7 @@ class ContaPoupanca(Conta):
         if valor > 0.00 and self.__saldo > 100.00:
             if saque > 0.00:
                 self.__saldo = saque
-                self.__extrato.add_transacao("saque realizado na conta poupança", valor)
+                self.__extrato.add_transacao("saque realizado na conta poupança , no valor de R$:", valor)
 
             else:
                 print("Saldo insuficiente...")
