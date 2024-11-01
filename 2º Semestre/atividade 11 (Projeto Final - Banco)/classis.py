@@ -53,8 +53,8 @@ class ContaCorrente(Conta):
             print("Saldo insuficiente...")
             
 class ContaPoupanca(Conta):
-    def __init__(self, saldo: float):
-        super().__init__(saldo)
+    def __init__(self):
+        super().__init__()
         self.__tipo = "Conta Poupança"
 
     def __str__(self):

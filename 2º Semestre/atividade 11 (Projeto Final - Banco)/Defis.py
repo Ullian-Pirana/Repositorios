@@ -116,6 +116,8 @@ def login(banco):
             nome = input("Nome: ")
             cpf = input("Cpf: ")
 
+            os.system("cls")
+
             cliente_encontrado = None
 
             for cliente in banco.getClientes():
@@ -126,15 +128,13 @@ def login(banco):
                     os.system("pause")
                     os.system("cls")
 
-                    return cliente_encontrado
+                    return cliente_encontrado  
 
                 else:
                     print("Nome ou CPF inválidos. Tente novamente.")
                     os.system("pause")
                     os.system("cls")
             
-            break
-
         except Exception as e:
             print(f"Impossível concluir a operação \n erro encontrado: {e}")
             
@@ -162,6 +162,7 @@ def tela_banco(user):
 
 def conta_corrente(user):
     conta = "Conta Corrente"
+    os.system("cls")
 
     while True:
         print("Conta Corrente")
@@ -169,12 +170,10 @@ def conta_corrente(user):
         if conta not in user.getContas():
             while True:
                 print("Conta Corrente não foi Aberta ainda, gostaria de Abrir uma? \n 1- Sim \n 2- Não")
-
+                
                 try:
                     abrir = int(input("--> "))
 
-                    os.system("pause")
-                    os.system("cls")
                     break
 
                 except Exception as e:                      
@@ -182,39 +181,37 @@ def conta_corrente(user):
 
                     os.system("pause")
                     os.system("cls")
+            
+            match abrir:
+                case 1:
+                    contaC = ContaCorrente()
+                    user.addConta(contaC) 
 
-            while True:
-                match abrir:
-                    case 1:
-                        contaC = ContaCorrente()
-                        user.addConta(contaC) 
+                    print("Conta Corrente Aberta com sucesso!")
 
-                        print("Conta Corrente Aberta com sucesso!")
+                    os.system("pause")
+                    os.system("cls")
+                    break
+                
+                case 2:
+                    print("Saindo...")
+                    os.system("pause")
+                    os.system("cls")
+                    break
 
-                        os.system("pause")
-                        os.system("cls")
-                        break
-                    
-                    case 2:
-                        print("Saindo...")
-                        os.system("pause")
-                        os.system("cls")
-                        break
-
-                    case _:
-                        print("Opção Invalida...")
-                        os.system("pause")
-                        os.system("cls")
+                case _:
+                    print("Opção Invalida...")
+                    os.system("pause")
+                    os.system("cls")
 
         else:
-            for contas in user.getContas():
-                if contas == contas.getTipo():
-                    conta_usar = contas
-
-            print(f"Saldo: {conta_usar.consultar_saldo()} \n")
-            print("O que gostaria de fazer?\n 1- Sacar \n 2- Depositar \n 3- Pix \n 4- sair")
+            conta_usar = conta
 
             while True:
+
+                print(f"Saldo: {conta_usar.consultar_saldo()} \n")
+                print("O que gostaria de fazer?\n 1- Sacar \n 2- Depositar \n 3- Pix \n 4- sair")
+
                 try:
                     usar_conta = int(input("--> "))
 
@@ -262,21 +259,7 @@ def conta_corrente(user):
                     os.system("cls")
 
                 case 3:
-                    print("Realizar transferência PIX...")
-
-                    conta_destino_nome = input("Informe o tipo da conta destino (Corrente ou Poupança): ")
-                    valor_pix = float(input("Informe o valor a ser transferido: "))
-                    
-                    conta_destino = None
-                    for conta in user.getContas():
-                        if conta.getTipo() == conta_destino_nome:
-                            conta_destino = conta
-                            break
-
-                    if conta_destino:
-                        conta_usar.pix(conta_destino, valor_pix)
-                    else:
-                        print("Conta destino não encontrada.")
+                    pass
 
                 case 4:
                     print("Saindo da Conta Corrente...")
@@ -357,50 +340,50 @@ def conta_poupanca(user):
                     os.system("pause")
                     os.system("cls")
             
-        match usar_conta:
-            case 1:
-                while True:
-                    try:
-                        sacar = float(input("Valor do saque: "))
-                        break
+            match usar_conta:
+                case 1:
+                    while True:
+                        try:
+                            sacar = float(input("Valor do saque: "))
+                            break
 
-                    except Exception as e:                      
-                        print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                        except Exception as e:                      
+                            print(f"Impossivel concluir operação \n erro encontrado: {e}")
 
-                        os.system("pause")
-                        os.system("cls")
-                        
-                conta_usar.sacar(sacar)
-                print(f"Saque realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
-                os.system("pause")
-                os.system("cls")
+                            os.system("pause")
+                            os.system("cls")
+                            
+                    conta_usar.sacar(sacar)
+                    print(f"Saque realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
+                    os.system("pause")
+                    os.system("cls")
 
-            case 2:
-                while True:
-                    try:
-                        deposito = float(input("Valor do deposito: "))
-                        break
+                case 2:
+                    while True:
+                        try:
+                            deposito = float(input("Valor do deposito: "))
+                            break
 
-                    except Exception as e:                      
-                        print(f"Impossivel concluir operação \n erro encontrado: {e}")
+                        except Exception as e:                      
+                            print(f"Impossivel concluir operação \n erro encontrado: {e}")
 
-                        os.system("pause")
-                        os.system("cls")
-                        
-                conta_usar.depositar(deposito)
-                print(f"Deposito realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
-                os.system("pause")
-                os.system("cls")
+                            os.system("pause")
+                            os.system("cls")
+                            
+                    conta_usar.depositar(deposito)
+                    print(f"Deposito realizado com sucesso no valor de R$:{deposito} \n Saldo atual da conta: {conta_usar.consultar_saldo()}")
+                    os.system("pause")
+                    os.system("cls")
 
-            case 3:
-                print("Saindo da Conta Corrente...")
+                case 3:
+                    print("Saindo da Conta Corrente...")
 
-                os.system("pause")
-                os.system("cls")
-                break
+                    os.system("pause")
+                    os.system("cls")
+                    break
 
-            case _:
-                print("opção invalida, tente novamente...")
+                case _:
+                    print("opção invalida, tente novamente...")
 
-                os.system("pause")
-                os.system("cls")
+                    os.system("pause")
+                    os.system("cls")
