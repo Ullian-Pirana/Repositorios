@@ -20,9 +20,9 @@ class Conta(ABC):
 
     #Método
     def transferir(self, conta_destino, valor: float):
-        if valor > 0 and valor <= self.__saldo:
-            self.sacar(valor)
-            conta_destino.depositar(valor)
+        if valor > 0 and valor <= self.__saldo:  #Verifica se  o valor é maior e se o saldo é menor ou igual para validar a transferência
+            self.sacar(valor) # Faz a transferência
+            conta_destino.depositar(valor) #
             self.__extrato.add_transacao(f"PIX para {conta_destino.getTipo()} no valor de R${valor:.2f}")
             conta_destino.consultar_extrato().add_transacao(f"PIX recebido de {self.getTipo()} no valor de R${valor:.2f}")
             print(f"Transferência PIX de R${valor:.2f} realizada com sucesso para {conta_destino.getTipo()}.")

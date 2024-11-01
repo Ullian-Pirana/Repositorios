@@ -15,10 +15,12 @@ while True:
             while True:
                 match conta:
                     case 1:
-                        conta_corrente(usuario)
+                        conta_corrente(usuario, Ull)
                     case 2:
                         conta_poupanca(usuario)
                     case 3:
+                        verExtratos(usuario)
+                    case 4:
                         print("Saindo...")
                         os.system("pause")
                         os.system("cls")
@@ -32,7 +34,7 @@ while True:
 
         case 3:
             excluir(Ull)
-        
+
         case 4:
             print("Saindo...")
             os.system("pause")

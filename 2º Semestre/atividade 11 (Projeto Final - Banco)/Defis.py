@@ -145,7 +145,7 @@ def tela_banco(user):
     while True:
         print("\t Ull Bank \n")
         print(f"Usuario: {user.getNome()} \n")
-        print("Qual Conta gostaria de Utilizar?\n 1- Corrente\n 2- Poupança\n 3- Sair")
+        print("Qual Conta gostaria de Utilizar?\n 1- Corrente\n 2- Poupança\n 3- Ver Extratos \n 4- Sair")
 
         try:
             conta = int(input("--> "))
@@ -162,9 +162,9 @@ def tela_banco(user):
 
 def conta_corrente(user, banco):
     conta = "Conta Corrente"
-    os.system("cls")
 
     while True:
+        os.system("cls")
         print("Conta Corrente")
 
         if conta not in user.getContas():
@@ -413,3 +413,39 @@ def conta_poupanca(user):
 
                     os.system("pause")
                     os.system("cls")
+
+def verExtratos(user):
+    while True:
+        print("Consultar Extratos: ")
+        while True:
+            print("O que gostaria de fazer? \n 1- Consultar Extratos \n 2- Sair")
+
+            try:
+                escolha = int(input("--> "))
+
+                os.system("cls")
+
+                break
+
+            except Exception as e:                      
+                    print(f"Impossivel concluir operação \n erro encontrado: {e}")
+
+                    os.system("pause")
+                    os.system("cls")
+
+        match escolha:
+            case 1:
+                posição = 0
+                extratos = user.consultar_extrato()
+                for extrato in extratos:
+                    print(f"extrato {posição}: \n {extrato}")
+
+                os.system("pause")
+                os.system("cls")
+
+            case 2:
+                print("Saindo...")
+                os.system("pause")
+                os.system("cls")
+                breaks
+
