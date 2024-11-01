@@ -1,6 +1,6 @@
 import os
 from classis import *
-
+#Chama a função Menu,Fornece as opções possíveis de serem executados
 def menu():
     while True:
         print("\t ~~~~Ull Bank~~~ \n")
@@ -20,6 +20,7 @@ def menu():
     
     return escolha
 
+#Chama a função de realizar cadastro
 def cadastro(banco):
     while True:
         print("\t Cadastro \n")
@@ -42,7 +43,8 @@ def cadastro(banco):
 
             os.system("pause")
             os.system("cls")  
-
+            
+#Chama a função excluir conta, exigindo informações basicas para realizar
 def excluir(banco):
     while True:
         print("\t Excluir Conta \n")
@@ -167,7 +169,9 @@ def conta_corrente(user, banco):
         os.system("cls")
         print("Conta Corrente")
 
-        if conta not in user.getContas():
+        lista_contas = user.getContas()
+
+        if conta != lista_contas:
             while True:
                 print("Conta Corrente não foi Aberta ainda, gostaria de Abrir uma? \n 1- Sim \n 2- Não")
                 
@@ -447,5 +451,5 @@ def verExtratos(user):
                 print("Saindo...")
                 os.system("pause")
                 os.system("cls")
-                breaks
+                break
 
