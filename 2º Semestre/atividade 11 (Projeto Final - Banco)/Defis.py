@@ -160,7 +160,7 @@ def tela_banco(user):
             
     return conta
 
-def conta_corrente(user):
+def conta_corrente(user, banco):
     conta = "Conta Corrente"
     os.system("cls")
 
@@ -259,7 +259,33 @@ def conta_corrente(user):
                     os.system("cls")
 
                 case 3:
-                    pass
+                    print("\t PIX ")
+
+                    try:
+                        destinatario = str(input("Cpf do destinario: "))
+
+                        for cliente in banco.getClientes():
+                            for cpf in cliente.getCpf():
+                                if destinatario == cpf:
+                                    
+                                    try:
+                                        valor = float(input("Valor da transação: "))
+
+                                        user.transferir(cliente, valor)
+
+                                        print(f"Pix Realizado pra {cliente} no valor de R${valor:2f}")
+
+                                    except Exception as e:                      
+                                        print(f"Impossivel concluir operação \n erro encontrado: {e}")
+
+                                        os.system("pause")
+                                        os.system("cls")
+
+                    except Exception as e:                      
+                        print(f"Impossivel concluir operação \n erro encontrado: {e}")
+
+                        os.system("pause")
+                        os.system("cls")
 
                 case 4:
                     print("Saindo da Conta Corrente...")

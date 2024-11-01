@@ -1,20 +1,24 @@
 from abc import *
 
+#Classe pai, classe abstrata onde se herda os atributos e metodos 
 class Conta(ABC):
-    @abstractmethod
-    def __init__(self):
-        self.__saldo = 0.00
-        self.__extrato = Extrato()
+    @abstractmethod #Decorator: Associar uma nova função a tudo que se tem na classe
+    def __init__(self): #Construtor
+        self.__saldo = 0.00        # O atributo saldo incia com o valor 0
+        self.__extrato = Extrato()  # É criado um objeto para as transações feitas
 
+    #Método 
     def depositar(self, valor: float):
         if valor > 0:
-            depositado = self.__saldo + valor
-            self.__saldo = depositado
-            self.__extrato.add_transacao("Depósito", valor)
+            depositado = self.__saldo + valor   #Acrescenta um valor ao saldo
+            self.__saldo = depositado #Novo valor atribuito ao saldo
+            self.__extrato.add_transacao("Depósito", valor) #Mostra o depósito feito 
     
+    #Método 
     def sacar(self, valor : float):
-        self.__saldo -= valor
+        self.__saldo -= valor   #Retira um valor do saldo 
 
+    #Método
     def transferir(self, conta_destino, valor: float):
         if valor > 0 and valor <= self.__saldo:
             self.sacar(valor)
@@ -25,9 +29,11 @@ class Conta(ABC):
         else:
             print("Valor inválido para transferência PIX.")
 
+    #Método
     def consultar_saldo (self):
         return self.__saldo
     
+    #Método
     def consultar_extrato(self):
         return self.__extrato.consultar_extratos()
     
