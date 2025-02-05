@@ -74,6 +74,7 @@ clientes = {
     }
 }
 
+
 @app.route("/livro", methods=["get"])
 def livro():
     return livros
