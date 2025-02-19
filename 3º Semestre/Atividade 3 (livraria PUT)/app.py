@@ -110,13 +110,13 @@ def delete_livro(id):
 @app.route("/add_autor", methods=["post"])
 def add_autor():
     data = request.get_json()
-    autores[f"{len(autores)+1}"]
+    autores[f"{len(autores)+1}"] = data
     return autores
 
 @app.route("/add_clientes", methods=["post"])
 def add_clientes():
     data = request.get_json()
-    clientes[f"{len(clientes)+1}"]
+    clientes[f"{len(clientes)+1}"] = data
     return clientes
 
 @app.route("/add_livro", methods=["post"])
