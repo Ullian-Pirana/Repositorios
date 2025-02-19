@@ -86,6 +86,20 @@ def cliente():
 def autor():
     return autores
 
+@app.route("/delete_autor/<string:id>", methods=["delete"])
+def delete_autores(id):
+    print(f"\n\n--->> {id}\n\n")
+    print(autores[id])    
+    del autores[id]
+    return autores
+
+@app.route("/delete_clientes/<string:id>", methods=["delete"])
+def delete_cliente(id):
+    print(f"\n\n--->> {id}\n\n")
+    print(clientes[id])    
+    del clientes[id]
+    return clientes
+
 @app.route("/delete_livro/<string:id>", methods=["delete"])
 def delete_livro(id):
     print(f"\n\n--->> {id}\n\n")
@@ -93,11 +107,45 @@ def delete_livro(id):
     del livros[id]
     return livros
 
+@app.route("/add_autor", methods=["post"])
+def add_autor():
+    data = request.get_json()
+    autores[f"{len(autores)+1}"]
+    return autores
+
+@app.route("/add_clientes", methods=["post"])
+def add_clientes():
+    data = request.get_json()
+    clientes[f"{len(clientes)+1}"]
+    return clientes
+
 @app.route("/add_livro", methods=["post"])
 def add_livro():
     data = request.get_json()
     livros[f"{len(livros) + 1}"] = data
     return livros
+
+@app.route("/up_autores", methods = ["put"])
+def up_autores():
+    data = request.get_json() 
+    if data["id"] in autores:
+        for chave, valor in data.items():
+            if chave != "id":
+                autores[data["id"]][chave] = valor
+        return jsonify(autores), 200
+    else:
+        return jsonify({"erro": "autor não encontrado"}), 404
+
+@app.route("/up_cliente", methods = ["put"])
+def up_cliente():
+    data = request.get_json() 
+    if data["id"] in clientes:
+        for chave, valor in data.items():
+            if chave != "id":
+                clientes[data["id"]][chave] = valor
+        return jsonify(clientes), 200
+    else:
+        return jsonify({"erro": "Livro não encontrado"}), 404
 
 @app.route("/up_livro", methods = ["put"])
 def up_livro():
