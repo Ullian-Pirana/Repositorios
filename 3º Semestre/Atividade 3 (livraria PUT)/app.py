@@ -99,9 +99,9 @@ def add_livro():
     livros[f"{len(livros) + 1}"] = data
     return livros
 
-@app.route("/up_livro", methods = ["put"])
+@app.route("/up_livro/<string:id>", methods = ["put"])
 def up_livro():
-    pass
+    data = request.get_json() 
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
