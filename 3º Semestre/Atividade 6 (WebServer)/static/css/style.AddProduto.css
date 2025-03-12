@@ -1,0 +1,19 @@
+h1{
+    color:crimson;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+p{
+    color:blueviolet;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background-color: rgb(200, 255, 0);
+}
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
