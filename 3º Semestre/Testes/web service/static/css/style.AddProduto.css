@@ -1,0 +1,32 @@
+h1{
+    color:rgb(250, 197, 117);
+    font-family:monospace;
+}
+
+p{
+    color:rgb(198, 127, 28);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background-color: rgb(244, 255, 203);
+}
+
+.ernesto{
+    display: flex;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+
+.container{
+    padding: 82px;
+}
