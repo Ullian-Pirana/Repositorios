@@ -12,8 +12,18 @@ body{
     background-color: rgb(200, 255, 0);
 }
 
+.ernesto{
+    display: flex;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
+    
+}
+
 img{
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
 }
 

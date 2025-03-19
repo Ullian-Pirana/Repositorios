@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>HOME PAGE</h1>
+    <h1>{{context.Titulo}}</h1>
+    <p>{{context.Texto}}</p>
+    <img src="{{url_for('static',filename=context.img)}}" alt="Imagem_ernesto">
 {% endblock %}
