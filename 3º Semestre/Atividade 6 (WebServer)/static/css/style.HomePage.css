@@ -1,15 +1,5 @@
-h1{
-    color:crimson;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-}
-
-p{
-    color:blueviolet;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 body{
-    background-color: rgb(234, 163, 201);
+    background-color: rgba(24, 22, 23, 0.712);
 }
 
 img{
