@@ -5,7 +5,9 @@ app= Flask(__name__)
 @app.route('/')
 def homepage():
     context = {}
-   
+    context["img"] = "None"
+    context["Titulo"] = "VENDINHA C13"
+    context["Texto"] = "Seja Bem Vindo"
     return render_template("homepage.html", context=context) #Página a ser renderizada. 
 
 
