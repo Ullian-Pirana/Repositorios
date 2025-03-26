@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -25,7 +25,15 @@ def form_produto():
 
 @app.route('/add_produto', methods=['POST'])
 def add_produto():
-    pass
+    nome = request.form['Nome']
+    preco = request.form['Preco']
+
+    produtos[len(produtos) + 1] = {
+        'nome' : nome,
+        'Preco' : preco
+    }
+
+    return redirect('/produtos')
 
 
 if __name__ == "__main__":
