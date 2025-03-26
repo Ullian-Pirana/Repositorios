@@ -1,29 +1,49 @@
-h1{
-    color:crimson;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+h1 {
+    color: rgb(250, 197, 117);
+    font-family: monospace;
+    text-align: center;
 }
 
-p{
-    color:blueviolet;
+h2 {
+    color: rgb(198, 127, 28);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
-body{
-    background-color: rgb(200, 255, 0);
+p {
+    color: rgb(80, 60, 20);
+    font-family: Arial, sans-serif;
 }
 
-.ernesto{
+body {
+    background-color: rgb(244, 255, 203);
+}
+
+.catalogo-container {
+    padding: 40px;
+}
+
+.produtos-grid {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-.navbar{
-    display: flex;
-    
+.produto-card {
+    background-color: #fff8e1;
+    border-radius: 10px;
+    padding: 20px;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-img{
-    width: 100px;
-    height: 100px;
+.produto-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
 }
-

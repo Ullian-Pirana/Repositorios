@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{context.Titulo}}</h1>
-    <p>{{context.Texto}}</p>
-    <img src="{{url_for('static',filename=context.img)}}" alt="Imagem_ernesto">
+    <div class="container">
+        <img src="{{url_for('static',filename = img)}}" alt="Imagem_ernesto">
+        <div class="Conteudo">
+            <h1>{{Titulo}}</h1>
+            <p>{{Texto}}</p>
+        </div>
+    </div>
 {% endblock %}

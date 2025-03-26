@@ -1,11 +1,26 @@
 {% extends "index.html" %}
 
 {% block link %}
-<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.AddProduto.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.catalogo.css')}}">
 {% endblock %}
 
 {% block body %}
-    <h1>ADICIONAR PRODUTOS</h1>
-    <img src="/static/img/Ernesto.jpg">
-    <p class="ernesto">Queres adicionar um produto?</p>
+    <div class="container">
+        <h1>{{Titulo_add}}</h1>
+        <div class="produto-lista">
+            {% for id, produto in produtos.items() %}
+            <div class="produto-item">
+                <p class="produto-id">ID: {{ id }}</p>
+                <p class="produto-nome">{{ produto.nome }}</p>
+                <img src="{{url_for('static',filename = img_add1)}}" >
+                <p class="produto-preco">Preço: R$ {{ produto.preco }}</p>
+                <button class="produto-comprar">Comprar</button>
+            </div>
+
+            <div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
