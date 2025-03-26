@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+<body>
+    {% for chave, valor in produtos.items() %}
+    <ul>
+        <li>
+            {{valor.nome}}
+        </li>
+        <li>
+            {{valor.Preco}}
+        </li>
+    </ul>
+    {% endfor %}
+</body>
+</html>
