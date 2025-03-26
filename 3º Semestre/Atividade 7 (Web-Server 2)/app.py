@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-context =   {}
+context = {}
 produtos = {}
 produtos[1] = {
     "nome" : "abacaxi",
@@ -18,6 +18,15 @@ produtos[2] = {
 def produto():
     context['produtos'] = produtos
     return render_template ("Produtos.html", **context)
+
+@app.route('/form_produto')
+def form_produto():
+    return render_template ('add_produtos.html', **context)
+
+@app.route('/add_produto', methods=['POST'])
+def add_produto():
+    pass
+
 
 if __name__ == "__main__":
     app.run(debug=True)
