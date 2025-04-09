@@ -1,8 +1,0 @@
-/*css usado para nossa NAV, estilizando e alinhando os mesmos*/
-.linky{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3065AC;
-}
-
