@@ -17,7 +17,7 @@ def ler_tarefas():
         with open(CSV_FILE, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                row['id'] = int(row['id'])  # Convertemos para int
+                row['id'] = int(row['id'])  
                 tarefas.append(row)
     return tarefas
 
