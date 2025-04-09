@@ -1,77 +1,114 @@
-from flask import Flask, request, render_template, redirect, jsonify
-import os, csv
+from flask import Flask, render_template, request, redirect, url_for
+import csv
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-# Caminhos dos arquivos CSV = Transformados em variáveis
-ToDo_csv = "ToDo.csv"
+UPLOAD_FOLDER = 'static/uploads/tarefas'
+CSV_FILE = 'ToDo.csv'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-#Executa leitura do arquivo
-def ler_csv(arquivo):
-    if not os.path.exists(arquivo):
-        return []
-    with open(arquivo, newline='', encoding='utf-8') as f:
-        return list(csv.DictReader(f))
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-#Executa escrita do arquivo
-def escrever_csv(arquivo, dados, campos):
-    with open(arquivo, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=campos)
+def ler_tarefas():
+    tarefas = []
+    if os.path.exists(CSV_FILE):
+        with open(CSV_FILE, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                row['id'] = int(row['id'])  # Convertemos para int
+                tarefas.append(row)
+    return tarefas
+
+def salvar_tarefas(tarefas):
+    with open(CSV_FILE, 'w', newline='', encoding='utf-8') as csvfile:
+        campos = ['id', 'nome', 'descricao', 'prioridade', 'concluida', 'imagem']
+        writer = csv.DictWriter(csvfile, fieldnames=campos)
         writer.writeheader()
-        writer.writerows(dados)
+        for tarefa in tarefas:
+            writer.writerow(tarefa)
 
-#------------------#
+@app.route('/tarefas', methods=['GET', 'POST'])
+def tarefas():
+    tarefas = ler_tarefas()
+    
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        descricao = request.form.get('descricao')
+        prioridade = request.form.get('prioridade')
+        concluida = 'sim' if request.form.get('concluida') else 'não'
 
-# Clientes 
+        imagem = request.files.get('imagem')
+        if imagem and imagem.filename:
+            filename = secure_filename(imagem.filename)
+            caminho_imagem = os.path.join(app.config['UPLOAD_FOLDER'], filename).replace('\\', '/')
+            imagem.save(caminho_imagem)
+            caminho_relativo = caminho_imagem.replace('static/', '')
+        else:
+            caminho_relativo = ''
 
-#Retorna as informações dos tarefas
-@app.route('/tarefas', methods=['GET'])
-def listar_tarefas():
-    return jsonify(ler_csv(ToDo_csv))
+        novo_id = max([t['id'] for t in tarefas], default=0) + 1
+        nova_tarefa = {
+            'id': novo_id,
+            'nome': nome,
+            'descricao': descricao,
+            'prioridade': prioridade,
+            'concluida': concluida,
+            'imagem': caminho_relativo
+        }
 
-#Te permite adicionar um novo tarefa
-@app.route('/add_tarefas', methods=['POST']) #ok
-def adicionar_tarefas():
-    tarefas = ler_csv(ToDo_csv)
-    novo_id = max([int(c["ID"]) for c in tarefas], default=0) + 1
-    nova_tarefa = {
-        "ID": str(novo_id),
-        "Nome": request.json["Nome"],
-        "Sobrenome": request.json["Sobrenome"],
-        "Data de nascimento": request.json["Data de nascimento"],
-        "CPF": request.json["CPF"]
-    }
-    tarefas.append(nova_tarefa)
-    escrever_csv(ToDo_csv, tarefas, nova_tarefa.keys())
-    return jsonify(nova_tarefa), 201
+        tarefas.append(nova_tarefa)
+        salvar_tarefas(tarefas)
+        return redirect(url_for('tarefas'))
 
-#Atualiza as informações
-@app.route('/up_tarefas/<id>', methods=['PUT']) #ok colocar na doc q deve passar up_tarefas / o id
-def atualizar_tarefa(id):
-    tarefas = ler_csv(ToDo_csv)
+    return render_template('tarefas.html', tarefas=tarefas)
 
-    id_str = str(id)
+@app.route('/editar/<int:id>', methods=['GET', 'POST'])
+def editar(id):
+    tarefas = ler_tarefas()
+    tarefa = next((t for t in tarefas if t['id'] == id), None)
 
-    for tarefa in tarefas:
-        if str(tarefa["ID"]) == id_str:
-            if not request.json:
-                return jsonify({"error": "Nenhum dado enviado"}), 400
-            
-            tarefa.update(request.json)
-            escrever_csv(ToDo_csv, tarefas, tarefa.keys())
-            return jsonify(tarefa), 200
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        descricao = request.form.get('descricao')
+        prioridade = request.form.get('prioridade')
+        concluida = 'sim' if request.form.get('concluida') else 'não'
 
-    return jsonify({"error": "Tarefa não encontrada"}), 404
+        imagem = request.files.get('imagem')
+        if imagem and imagem.filename:
+            filename = secure_filename(imagem.filename)
+            caminho_imagem = os.path.join(app.config['UPLOAD_FOLDER'], filename).replace('\\', '/')
+            imagem.save(caminho_imagem)
+            caminho_relativo = caminho_imagem.replace('static/', '')
+        else:
+            caminho_relativo = tarefa['imagem']
 
-@app.route('/del_tarefas/<id>', methods=['DELETE']) #ok colocar na doc q deve passar del_tarefas / o id
-def remover_tarefa(id):
-    tarefas = ler_csv(ToDo_csv)
-    tarefas = [c for c in tarefas if c["ID"] != id]
-    escrever_csv(ToDo_csv, tarefas, []) #Id, nome, descricao e emergenica
-    return jsonify({"message": "Tarefa removido"}), 200
+        tarefa.update({
+            'nome': nome,
+            'descricao': descricao,
+            'prioridade': prioridade,
+            'concluida': concluida,
+            'imagem': caminho_relativo
+        })
 
-#------------------#
+        salvar_tarefas(tarefas)
+        return redirect(url_for('tarefas'))
 
+    return render_template('editar.html', tarefa=tarefa)
 
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+@app.route('/deletar/<int:id>', methods=['GET', 'POST'])
+def deletar(id):
+    tarefas = ler_tarefas()
+    tarefa = next((t for t in tarefas if t['id'] == id), None)
+
+    if request.method == 'GET':
+        return render_template('confirmar_deletar.html', tarefa=tarefa)
+
+    elif request.method == 'POST':
+        tarefas = [t for t in tarefas if t['id'] != id]
+        salvar_tarefas(tarefas)
+        return redirect(url_for('tarefas'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
