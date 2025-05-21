@@ -19,9 +19,7 @@
                         <p class="homepage-description">{{dados.descricao}}</p>
                     </div>
                     <div class="homepage-image">
-                        {% if dados.logo %}
-                            <img src="{{ dados.logo.url }}" alt="{{ dados.titulo }}" class="homepage-logo">
-                        {% endif %}
+                        <img src="{{dados.logo.url}}" alt="{{dados.titulo}}" class="homepage-logo">
                     </div>
                 </div>
             </div>
