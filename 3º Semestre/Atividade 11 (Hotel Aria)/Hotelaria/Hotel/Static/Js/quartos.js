@@ -28,7 +28,6 @@ function mudarStatus(quartoId, novoStatus) {
     });
 }
 
-// Função para obter o CSRF Token dos cookies
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {

@@ -9,6 +9,6 @@ urlpatterns = [
     path('quartos', views.verQuartos, name="quartos"),
     path('reservas', views.reservas, name="reservas"),
     path('removerQuarto', views.removerQuarto, name="removerQuarto"),
-    path('alterar-status-quarto', views.alt_status, name='alterar_Status'),
+    path('alterar-status-quarto/', views.alt_status, name='alterar_Status'),
     path('addColaborador', views.add_colaborador, name='addColaborador')
 ]

@@ -113,7 +113,7 @@ def add_colaborador(request):
                 first_name=first_name,
                 last_name=last_name
             )
-            funcionario_group, created = Group.objects.get_or_create(name='Funcionario')
+            funcionario_group, created = Group.objects.get_or_create(name='Funcionarios')
             user.groups.add(funcionario_group)
             user.save()
             messages.success(request, f'✅ Colaborador {username} cadastrado com sucesso!')
