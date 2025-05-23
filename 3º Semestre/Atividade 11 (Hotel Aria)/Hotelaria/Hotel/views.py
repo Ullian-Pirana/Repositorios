@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import logout, authenticate, login
 from django.views.decorators.csrf import csrf_exempt
@@ -91,6 +92,26 @@ def removerQuarto(request):
     quartos = quarto.objects.all()
     context = {'quartos': quartos}
     return render(request, 'rmvQuartos.html', context)
+
+@login_required
+@user_passes_test(is_gerente, login_url='homepage')
+def add_colaborador(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Usuário já existe. ❌')
+        else:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            funcionario_group, created = Group.objects.get_or_create(name='Funcionario')
+            user.groups.add(funcionario_group)
+            user.save()
+            messages.success(request, f'Colaborador {username} cadastrado com sucesso! ✅')
+            return redirect('addColaborador')
+
+    return render(request, 'addColaborador.html')
 
 def Sair(request):
     logout(request)
