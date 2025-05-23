@@ -3,10 +3,6 @@
 
 {% block title %}Adicionar Colaborador{% endblock %}
 
-{% block head %}
-    <link rel="stylesheet" href="{% static 'css/addColaborador.css' %}">
-{% endblock %}
-
 {% block body %}
 <div class="container">
     <div class="top-bar">
@@ -27,6 +23,13 @@
     <div class="form-card">
         <form method="post">
             {% csrf_token %}
+
+            <label for="first_name">Primeiro Nome:</label>
+            <input type="text" name="first_name" required placeholder="Digite o primeiro nome">
+
+            <label for="last_name">Sobrenome:</label>
+            <input type="text" name="last_name" required placeholder="Digite o sobrenome">
+
             <label for="username">Usuário:</label>
             <input type="text" name="username" required placeholder="Digite o nome de usuário">
 
