@@ -94,7 +94,7 @@ def removerQuarto(request):
     return render(request, 'rmvQuartos.html', context)
 
 @login_required
-@user_passes_test(is_gerente)
+@user_passes_test(is_gerente, login_url='homepage')
 def add_colaborador(request):
     if request.method == 'POST':
         username = request.POST.get('username')
