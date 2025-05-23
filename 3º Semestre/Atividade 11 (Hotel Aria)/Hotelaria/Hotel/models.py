@@ -18,14 +18,11 @@ class quarto(models.Model):
         ("Plus", "Plus"),
         ("Premium", "Premium"),
     ]
+
     estilo_quarto = [
         ("Solteiro", "Solteiro"),
         ("Casal", "Casal"),
         ("Familia", "Familia")
-    ]
-    status_status = [
-        (1, "Disponivel"),
-        (0, "Reservado")
     ]
 
     num_Quarto = models.IntegerField()
@@ -34,5 +31,8 @@ class quarto(models.Model):
     tipo = models.CharField(choices=tipo_quarto)
     valor = models.FloatField(max_length=3)
     descricao = models.TextField(max_length=500)
-    status = models.BooleanField(choices=status_status, default=1)
+    status = models.BooleanField(default=True)
     img = models.ImageField(upload_to='quarto/')
+
+    def __str__(self):
+        return f"Quarto Nº{self.num_Quarto} - {self.estilo} ({self.tipo})"

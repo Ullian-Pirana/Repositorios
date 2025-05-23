@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import logout, authenticate, login
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from django.contrib import messages
 from .models import *
 from .forms import *
@@ -29,15 +31,22 @@ def Login(request):
     return render(request, 'Login.html')
 
 @login_required
-def alt_status(request, quarto_id, novo_status):
-    try:
-        q = quarto.objects.get(id=quarto_id)
-        q.status = bool(int(novo_status))
-        q.save()
-        messages.success(request, "Status do quarto atualizado com sucesso! ✅")
-    except quarto.DoesNotExist:
-        messages.error(request, "Quarto não encontrado. ❌")
-    return redirect('quartos')
+def alt_status(request):
+    if request.method == 'POST':
+        quarto_id = request.POST.get('id')
+        novo_status = request.POST.get('status')
+
+        if not quarto_id or not novo_status:
+            return JsonResponse({'success': False, 'error': 'Parâmetros ausentes'})
+
+        try:
+            quarto_obj = quarto.objects.get(id=quarto_id)
+            quarto_obj.status = True if novo_status == '1' else False
+            quarto_obj.save()
+            return JsonResponse({'success': True})
+        except quarto.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Quarto não encontrado'})
+    return JsonResponse({'success': False, 'error': 'Método inválido'})
 
 @login_required
 @user_passes_test(is_gerente, login_url='homepage')
@@ -63,8 +72,8 @@ def verQuartos(request):
 
 @login_required
 def reservas(request):
-    quartos = quarto.objects.all()
-    context = {'quartos': quartos}
+    quartos_reservados = quarto.objects.filter(status=False)  # False = Reservado
+    context = {'quartos': quartos_reservados}
     return render(request, 'reservas.html', context)
 
 @login_required

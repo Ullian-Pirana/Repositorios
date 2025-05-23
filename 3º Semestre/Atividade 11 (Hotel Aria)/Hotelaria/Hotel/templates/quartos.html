@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/quartos.css' %}">
+<script src="{% static 'js/quartos.js' %}" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -54,18 +55,4 @@
         {% endfor %}
     </div>
 </div>
-
-<script>
-function toggleExpand(element) {
-    element.classList.toggle('expanded');
-}
-
-function mudarStatus(quartoId, novoStatus) {
-    const confirmar = confirm("Deseja realmente alterar o status deste quarto?");
-    if (confirmar) {
-        window.location.href = `/alterarStatus/${quartoId}/${novoStatus}/`;
-    }
-}
-</script>
-
 {% endblock %}
