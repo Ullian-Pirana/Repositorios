@@ -5,24 +5,28 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/reservas.css' %}">
+<script src="{% static 'js/quartos.js' %}" defer></script>
 {% endblock %}
 
 {% block body %}
 <div class="container">
-    <a href="{% url 'quartos' %}" class="btn-voltar">⮐ Voltar</a>
-
-    <h1>Quartos Reservados</h1>
+    <div class="top-bar">
+        <h1>Quartos Reservados</h1>
+        <div class="botoes">
+            <a href="{% url 'quartos' %}" class="btn-voltar">Voltar</a>
+        </div>
+    </div>
 
     <div class="cards-container">
         {% for quarto in quartos %}
-            <div class="card">
+            <div class="card" onclick="toggleExpand(this)">
                 <img src="{{ quarto.img.url }}" alt="Imagem do Quarto">
                 <div class="card-info">
                     <h2>Quarto {{ quarto.num_Quarto }} - {{ quarto.get_tipo_display }}</h2>
                     <p><strong>Estilo:</strong> {{ quarto.get_estilo_display }}</p>
                     <p><strong>Hóspedes:</strong> {{ quarto.qtd_Hospedes }}</p>
                     <p><strong>Valor:</strong> R$ {{ quarto.valor }}</p>
-                    <p><strong>Status:</strong> Reservado</p>
+
                     <div class="descricao">
                         <p><strong>Descrição:</strong> {{ quarto.descricao }}</p>
                     </div>
