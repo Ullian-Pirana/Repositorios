@@ -121,6 +121,7 @@ def add_colaborador(request):
 
     return render(request, 'addColaborador.html')
 
+@login_required
 def Sair(request):
     logout(request)
     messages.success(request, "Logout realizado com sucesso! 👋")
