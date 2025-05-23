@@ -98,17 +98,17 @@ def removerQuarto(request):
 def add_colaborador(request):
     if request.method == 'POST':
         username = request.POST.get('username')
-        password = request.POST.get('password')
         email = request.POST.get('email')
+        password = request.POST.get('password')
 
         if User.objects.filter(username=username).exists():
-            messages.error(request, 'Usuário já existe. ❌')
+            messages.error(request, '❌ Usuário já existe!')
         else:
             user = User.objects.create_user(username=username, email=email, password=password)
             funcionario_group, created = Group.objects.get_or_create(name='Funcionario')
             user.groups.add(funcionario_group)
             user.save()
-            messages.success(request, f'Colaborador {username} cadastrado com sucesso! ✅')
+            messages.success(request, f'✅ Colaborador {username} cadastrado com sucesso!')
             return redirect('addColaborador')
 
     return render(request, 'addColaborador.html')
