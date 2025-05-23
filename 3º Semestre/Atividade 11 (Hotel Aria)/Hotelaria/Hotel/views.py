@@ -94,17 +94,25 @@ def removerQuarto(request):
     return render(request, 'rmvQuartos.html', context)
 
 @login_required
-@user_passes_test(is_gerente, login_url='homepage')
+@user_passes_test(is_gerente)
 def add_colaborador(request):
     if request.method == 'POST':
         username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         password = request.POST.get('password')
 
         if User.objects.filter(username=username).exists():
             messages.error(request, '❌ Usuário já existe!')
         else:
-            user = User.objects.create_user(username=username, email=email, password=password)
+            user = User.objects.create_user(
+                username=username,
+                email=email,
+                password=password,
+                first_name=first_name,
+                last_name=last_name
+            )
             funcionario_group, created = Group.objects.get_or_create(name='Funcionario')
             user.groups.add(funcionario_group)
             user.save()
