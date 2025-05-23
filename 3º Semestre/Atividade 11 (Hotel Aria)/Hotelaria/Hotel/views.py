@@ -50,6 +50,18 @@ def alt_status(request):
     return JsonResponse({'success': False, 'error': 'Método inválido'})
 
 @login_required
+def verQuartos(request):
+    quartos = quarto.objects.all()
+    context = {'quartos': quartos}
+    return render(request, 'quartos.html', context)
+
+@login_required
+def reservas(request):
+    quartos_reservados = quarto.objects.filter(status=False)  # False = Reservado
+    context = {'quartos': quartos_reservados}
+    return render(request, 'reservas.html', context)
+
+@login_required
 @user_passes_test(is_gerente, login_url='homepage')
 def addQuarto(request):
     if request.method == 'POST':
@@ -64,18 +76,6 @@ def addQuarto(request):
         form = quartoForms()
     context = {'form': form}
     return render(request, 'addQuartos.html', context)
-
-@login_required
-def verQuartos(request):
-    quartos = quarto.objects.all()
-    context = {'quartos': quartos}
-    return render(request, 'quartos.html', context)
-
-@login_required
-def reservas(request):
-    quartos_reservados = quarto.objects.filter(status=False)  # False = Reservado
-    context = {'quartos': quartos_reservados}
-    return render(request, 'reservas.html', context)
 
 @login_required
 @user_passes_test(is_gerente, login_url='homepage')
