@@ -24,10 +24,10 @@
                     <p><strong>Hóspedes:</strong> {{ quarto.qtd_Hospedes }}</p>
                     <p><strong>Valor:</strong> R$ {{ quarto.valor }}</p>
                     <p class="descricao">{{ quarto.descricao }}</p>
-                    <form method="POST" class="form-remover">
+                    <form method="POST" onsubmit="return confirmarExclusao();">
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ quarto.id }}">
-                        <button type="submit" class="btn-remover-confirmar">Remover</button>
+                        <button type="submit" class="btn-remove">Remover</button>
                     </form>
                 </div>
             </div>
@@ -35,5 +35,12 @@
             <p>Não há quartos cadastrados.</p>
         {% endfor %}
     </div>
+
+    <script>
+        function confirmarExclusao() {
+            return confirm('Tem certeza que deseja excluir este quarto? Esta ação não pode ser desfeita!');
+        }
+    </script>
+
 </div>
 {% endblock %}
