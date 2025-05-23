@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    ADD QUARTO
+    Adicionar Quarto
 {% endblock %}
 
 {% block head %}
@@ -10,9 +10,18 @@
 {% endblock %}
 
 {% block body %}
-    <form action="/addQuarto" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">CADASTRAR</button>
-    </form>
+
+<a href="{% url 'quartos' %}" class="btn-voltar">⮐ Voltar</a>
+
+<div class="container-add">
+    <div class="card-add">
+        <h1>Adicionar Novo Quarto</h1>
+        
+        <form action="/addQuarto" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

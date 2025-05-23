@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Remover Quartos{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/rmvQuartos.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="top-bar">
+        <h1>Remover Quartos</h1>
+        <a href="{% url 'quartos' %}" class="btn-voltar">⮐ Voltar</a>
+    </div>
+
+    <div class="cards-container">
+        {% for quarto in quartos %}
+            <div class="card">
+                <img src="{{ quarto.img.url }}" alt="Imagem do Quarto">
+                <div class="card-info">
+                    <h2>Quarto {{ quarto.num_Quarto }} - {{ quarto.get_tipo_display }}</h2>
+                    <p><strong>Estilo:</strong> {{ quarto.get_estilo_display }}</p>
+                    <p><strong>Hóspedes:</strong> {{ quarto.qtd_Hospedes }}</p>
+                    <p><strong>Valor:</strong> R$ {{ quarto.valor }}</p>
+                    <p class="descricao">{{ quarto.descricao }}</p>
+                    <form method="POST" class="form-remover">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ quarto.id }}">
+                        <button type="submit" class="btn-remover-confirmar">Remover</button>
+                    </form>
+                </div>
+            </div>
+        {% empty %}
+            <p>Não há quartos cadastrados.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

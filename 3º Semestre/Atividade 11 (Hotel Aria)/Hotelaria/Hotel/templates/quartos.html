@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Quartos{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/quartos.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="top-bar">
+        <h1>Quartos Disponíveis</h1>
+        <div class="botoes">
+            {% if user.is_authenticated %}
+                {% if user.groups.all.0.name == "Gerente" %}
+                    <a href="{% url 'addQuarto' %}" class="btn-add">Adicionar Quarto</a>
+                    <a href="{% url 'removerQuarto' %}" class="btn-remove">Remover Quartos</a>
+                    <a href="{% url 'reservas' %}" class="btn-reservados">Reservas</a>
+                {% else %}
+                    <a href="{% url 'reservas' %}" class="btn-reservados">Reservas</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="cards-container">
+        {% for quarto in quartos %}
+            <div class="card" onclick="toggleExpand(this)">
+                <img src="{{ quarto.img.url }}" alt="Imagem do Quarto">
+                <div class="card-info">
+                    <h2>Quarto {{ quarto.num_Quarto }} - {{ quarto.get_tipo_display }}</h2>
+                    <p><strong>Estilo:</strong> {{ quarto.get_estilo_display }}</p>
+                    <p><strong>Hóspedes:</strong> {{ quarto.qtd_Hospedes }}</p>
+                    <p><strong>Valor:</strong> R$ {{ quarto.valor }}</p>
+
+                    <div class="status-select">
+                        <label for="status-{{ quarto.id }}">Status:</label>
+                        <select id="status-{{ quarto.id }}" name="status"
+                                onchange="mudarStatus('{{ quarto.id }}', this.value)"
+                                onclick="event.stopPropagation()">
+                            <option value="1" {% if quarto.status %}selected{% endif %}>Disponível</option>
+                            <option value="0" {% if not quarto.status %}selected{% endif %}>Reservado</option>
+                        </select>
+                    </div>
+
+                    <div class="descricao">
+                        <p><strong>Descrição:</strong> {{ quarto.descricao }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>Não há quartos cadastrados.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+function toggleExpand(element) {
+    element.classList.toggle('expanded');
+}
+
+function mudarStatus(quartoId, novoStatus) {
+    const confirmar = confirm("Deseja realmente alterar o status deste quarto?");
+    if (confirmar) {
+        window.location.href = `/alterarStatus/${quartoId}/${novoStatus}/`;
+    }
+}
+</script>
+
+{% endblock %}

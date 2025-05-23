@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Quartos Reservados{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/reservas.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="top-bar">
+        <h1>Quartos Reservados</h1>
+        <a href="{% url 'quartos' %}" class="btn-voltar">⮐ Voltar</a>
+    </div>
+
+    <div class="cards-container">
+        {% for quarto in quartos %}
+            {% if not quarto.status %}
+            <div class="card">
+                <img src="{{ quarto.img.url }}" alt="Imagem do Quarto">
+                <div class="card-info">
+                    <h2>Quarto {{ quarto.num_Quarto }} - {{ quarto.get_tipo_display }}</h2>
+                    <p><strong>Estilo:</strong> {{ quarto.get_estilo_display }}</p>
+                    <p><strong>Hóspedes:</strong> {{ quarto.qtd_Hospedes }}</p>
+                    <p><strong>Valor:</strong> R$ {{ quarto.valor }}</p>
+                    <p><strong>Status:</strong> Reservado</p>
+                    <p class="descricao">{{ quarto.descricao }}</p>
+                </div>
+            </div>
+            {% endif %}
+        {% empty %}
+            <p>Não há quartos reservados no momento.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
